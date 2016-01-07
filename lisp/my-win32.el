@@ -26,3 +26,8 @@
 (ad-activate 'grep-compute-defaults)
 
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . bat-mode))
+
+;; set the active region color
+;; http://stackoverflow.com/questions/18684579/how-do-i-change-the-highlight-color-for-selected-text-with-emacs-deftheme
+;; check colors using 'list-colors-display'
+(set-face-attribute 'region nil :background "#cd5b45")
