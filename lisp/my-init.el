@@ -50,3 +50,8 @@ directory to make multiple eshell windows easier."
 
 ;; disalbe better-defaults C-w key bindings
 (global-set-key (kbd "C-w") 'kill-region)
+
+;; easy-kill
+(eval-after-load "easy-kill"
+  (global-set-key [remap kill-ring-save] 'easy-kill))
+
