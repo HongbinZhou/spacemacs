@@ -45,3 +45,8 @@ directory to make multiple eshell windows easier."
 
     (insert (concat "ls"))
     (eshell-send-input)))
+
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+;; disalbe better-defaults C-w key bindings
+(global-set-key (kbd "C-w") 'kill-region)
