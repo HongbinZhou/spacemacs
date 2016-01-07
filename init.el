@@ -30,12 +30,14 @@ values."
      git
      ;; markdown
      org
+     shell
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     chinese
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -257,7 +259,16 @@ layers configuration. You are free to put any user code."
    ((string-equal system-type "windows-nt") ; Microsoft Windows
     (progn
       (message "Microsoft Windows")
-      (load-user-file "my-win32.el")))
+      (load-user-file "my-win32.el")
+
+      ;; https://github.com/zilongshanren/Spacemacs-rocks/issues/6
+      ;; https://github.com/syl20bnr/spacemacs/issues/3120
+      ;; If the Hiragino Sans GB font is not found in your system, you could call this
+      ;; method in dotspacemacs/config function with a different Chinese font name.
+      ;; If you are using mac, you could put the following code in your dotspacemacs/config function.
+      (when (configuration-layer/layer-usedp 'chinese)
+        (spacemacs//set-monospaced-font "Source Code Pro"  "Microsoft Yahei" 14 16))))
+
    ((string-equal system-type "darwin")   ; Mac OS X
     (progn
       (message "Mac OS X")))
@@ -266,11 +277,10 @@ layers configuration. You are free to put any user code."
       (message "Linux"))))
 
   (load-user-file "my-init.el")
-  (load-user-file "my-face.el")
   (load-user-file "my-helper.el")
-  (load-user-file "my-dired.el")
+  ;(load-user-file "my-dired.el")
   (load-user-file "my-org.el")
-  (load-user-file "my-python.el")
+  ;(load-user-file "my-python.el")
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -318,7 +328,7 @@ layers configuration. You are free to put any user code."
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (easy-kill pangu-spacing find-by-pinyin-dired chinese-pyim ace-pinyin pyvenv pytest pyenv-mode pip-requirements hy-mode helm-pydoc cython-mode anaconda-mode toc-org org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets htmlize gnuplot smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger evil-magit zenburn-theme monokai-theme solarized-theme ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line quelpa which-key use-package spacemacs-theme package-build evil bind-map)))
+    (xterm-color shell-pop multi-term eshell-prompt-extras esh-help easy-kill pangu-spacing find-by-pinyin-dired chinese-pyim ace-pinyin pyvenv pytest pyenv-mode pip-requirements hy-mode helm-pydoc cython-mode anaconda-mode toc-org org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets htmlize gnuplot smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger evil-magit zenburn-theme monokai-theme solarized-theme ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line quelpa which-key use-package spacemacs-theme package-build evil bind-map)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))

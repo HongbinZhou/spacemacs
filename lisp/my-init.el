@@ -11,7 +11,7 @@
 ;; setup files ending in “.tso” to open in nxml-mode
 (add-to-list 'auto-mode-alist '("\\.tso\\'" . nxml-mode))
 
-(global-set-key (kbd "C-z") 'eshell-here)
+(global-set-key (kbd "C-c C-z") 'eshell-here)
 (global-set-key (kbd "C-c z") 'shell)
 
 ;;; unbind Ctrl+z
