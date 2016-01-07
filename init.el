@@ -282,9 +282,7 @@ layers configuration. You are free to put any user code."
 
   (load-user-file "my-init.el")
   (load-user-file "my-helper.el")
-  ;(load-user-file "my-dired.el")
   (load-user-file "my-org.el")
-  ;(load-user-file "my-python.el")
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
