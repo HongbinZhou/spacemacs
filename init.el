@@ -23,25 +23,26 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
-     python
+     chinese
      emacs-lisp
      git
      ;; markdown
      org
+     python
      ;; hbzhou: eshell is very slow when enable shell layer.
      ;; (shell :variables shell-default-shell 'eshell)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
-     chinese
+     spell-checking
+     syntax-checking
+     version-control
 
-     ;; my private layers
+     ;;; my private layers
      my-dired
+     my-shell
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -330,7 +331,7 @@ layers configuration. You are free to put any user code."
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (xterm-color shell-pop multi-term eshell-prompt-extras esh-help easy-kill pangu-spacing find-by-pinyin-dired chinese-pyim ace-pinyin pyvenv pytest pyenv-mode pip-requirements hy-mode helm-pydoc cython-mode anaconda-mode toc-org org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets htmlize gnuplot smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger evil-magit zenburn-theme monokai-theme solarized-theme ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line quelpa which-key use-package spacemacs-theme package-build evil bind-map)))
+    (helm-flyspell helm-company helm-c-yasnippet git-gutter-fringe+ git-gutter-fringe git-gutter+ git-gutter flycheck-pos-tip flycheck diff-hl company-statistics company-quickhelp company-anaconda company auto-yasnippet auto-dictionary ac-ispell xterm-color shell-pop multi-term eshell-prompt-extras esh-help easy-kill pangu-spacing find-by-pinyin-dired chinese-pyim ace-pinyin pyvenv pytest pyenv-mode pip-requirements hy-mode helm-pydoc cython-mode anaconda-mode toc-org org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets htmlize gnuplot smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger evil-magit zenburn-theme monokai-theme solarized-theme ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin popup persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line quelpa which-key use-package spacemacs-theme package-build evil bind-map)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
