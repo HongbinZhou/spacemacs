@@ -1,3 +1,17 @@
+(defun hbzhou/indent-all ()
+  "Indent entire buffer."
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+
+(defun hbzhou/untabify-all ()
+  "untabify entire buffer"
+  (interactive)
+  (save-excursion
+    (if (not indent-tabs-mode)
+        (untabify (point-min) (point-max)))
+    nil))
+
 ;;; delete trailing space of given file
 (defun hbzhou/delete-trailing-space-file (file)
   (interactive "F")

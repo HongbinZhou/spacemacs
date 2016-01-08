@@ -13,6 +13,7 @@
 
 ;;; unbind Ctrl+z
 (global-unset-key (kbd "C-x C-z"))
+(global-unset-key (kbd "C-z"))
 
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
@@ -33,3 +34,31 @@
 (eval-after-load "easy-kill"
   (global-set-key [remap kill-ring-save] 'easy-kill))
 
+;;; C-q [num in december]
+(setq read-quoted-char-radix 10)
+
+(defun my-c-mode-common-hook ()
+  (setq indent-tabs-mode nil)
+  (setq c-default-style "bsd")
+  (setq c-basic-offset 2)
+  (setq tab-width 2)
+  (electric-indent-mode 1)
+  (c-toggle-auto-hungry-state 1)
+  (line-number-mode t)
+  (hs-minor-mode t)
+  (fold-dwim-org/minor-mode t)
+
+  ;; handle trailing space
+  (setq-default show-trailing-whitespace t)
+  (setq-default require-final-newline t)
+  (setq-default delete-trailing-lines nil)
+  ;; (add-hook 'local-write-file-hooks 'delete-trailing-whitespace)
+  ;; (add-hook 'local-write-file-hooks 'untabify-all)
+  ;; (add-hook 'local-write-file-hooks 'indent-all)
+  )
+
+(add-hook 'c-mode-common-hook
+          'my-c-mode-common-hook)
+
+;; let M-e to go end of line
+(define-key evil-motion-state-map (kbd "C-e") 'move-end-of-line)
