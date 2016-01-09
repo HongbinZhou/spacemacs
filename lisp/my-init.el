@@ -1,4 +1,11 @@
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; for those packages which don't included in elpa
+(add-to-list 'load-path "~/.spacemacs.d/plugins")
+(require 'mercurial)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 (global-set-key (kbd "C-2") 'set-mark-command)
 
 
@@ -62,3 +69,10 @@
 
 ;; let M-e to go end of line
 (define-key evil-motion-state-map (kbd "C-e") 'move-end-of-line)
+
+;; let M-. do helm-gtags-dwin
+(define-key evil-normal-state-map (kbd "M-.") 'helm-gtags-dwim)
+
+;; helm-occur
+(global-set-key (kbd "M-i") 'helm-occur)
+
