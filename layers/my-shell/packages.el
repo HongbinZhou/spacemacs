@@ -64,7 +64,7 @@ directory to make multiple eshell windows easier."
           (insert (concat "ls"))
           (eshell-send-input)))
 
-      (global-set-key (kbd "C-c C-z") 'spacemacs//eshell-here)
+      (global-set-key (kbd "C-z") 'spacemacs//eshell-here)
       (global-set-key (kbd "C-c z") 'shell)
 
       (add-hook 'eshell-mode-hook
