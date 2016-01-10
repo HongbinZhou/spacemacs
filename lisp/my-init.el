@@ -33,9 +33,6 @@
 ;; http://stackoverflow.com/questions/11847547/emacs-regexp-count-occurrences
 (global-set-key (kbd "C-c o") 'count-matches)
 
-;; disalbe better-defaults C-w key bindings
-(global-set-key (kbd "C-w") 'kill-region)
-
 ;; easy-kill
 (eval-after-load "easy-kill"
   (global-set-key [remap kill-ring-save] 'easy-kill))
