@@ -26,13 +26,16 @@
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
 ;; Magit rules!
-(global-set-key (kbd "C-x g") 'magit-status)
+(eval-after-load "magit"
+  (global-set-key (kbd "C-x g") 'magit-status))
 
 ;; regexp count occurrences
 ;; http://stackoverflow.com/questions/11847547/emacs-regexp-count-occurrences
 (global-set-key (kbd "C-c o") 'count-matches)
 
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; helm
+(eval-after-load "helm"
+  (global-set-key (kbd "C-x C-f") 'helm-find-files))
 
 ;; disalbe better-defaults C-w key bindings
 (global-set-key (kbd "C-w") 'kill-region)
