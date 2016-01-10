@@ -33,10 +33,6 @@
 ;; http://stackoverflow.com/questions/11847547/emacs-regexp-count-occurrences
 (global-set-key (kbd "C-c o") 'count-matches)
 
-;; helm
-(eval-after-load "helm"
-  (global-set-key (kbd "C-x C-f") 'helm-find-files))
-
 ;; disalbe better-defaults C-w key bindings
 (global-set-key (kbd "C-w") 'kill-region)
 
