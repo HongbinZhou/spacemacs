@@ -70,5 +70,6 @@
 (define-key evil-normal-state-map (kbd "M-.") 'helm-gtags-dwim)
 
 ;; helm-occur
-(global-set-key (kbd "M-i") 'helm-occur)
-
+(with-eval-after-load 'helm
+  (global-set-key (kbd "C-x C-f") 'helm-find-files)
+  (global-set-key (kbd "M-i") 'helm-occur))
