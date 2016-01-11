@@ -20,7 +20,6 @@
 
 ;;; unbind Ctrl+z
 (global-unset-key (kbd "C-x C-z"))
-(global-unset-key (kbd "C-z"))
 
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
