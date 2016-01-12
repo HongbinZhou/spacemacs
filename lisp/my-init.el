@@ -76,4 +76,4 @@
 ;; org-agenda
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map
-    (kbd "RET") 'org-agenda-goto))
+    (kbd "RET") 'org-agenda-switch-to))
