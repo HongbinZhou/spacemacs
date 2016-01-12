@@ -70,6 +70,9 @@
 
 ;; helm-occur
 (with-eval-after-load 'helm
+  ;; tmp work around for issue: https://github.com/syl20bnr/spacemacs/issues/4538
+  (setq helm-echo-input-in-header-line nil)
+
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (global-set-key (kbd "M-i") 'helm-occur))
 

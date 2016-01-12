@@ -39,8 +39,8 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spacemacs-helm
-     ;; spacemacs-ivy
+     spacemacs-helm
+     spacemacs-ivy
      spell-checking
      syntax-checking
      version-control
