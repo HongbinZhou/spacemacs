@@ -72,3 +72,8 @@
 (with-eval-after-load 'helm
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (global-set-key (kbd "M-i") 'helm-occur))
+
+;; org-agenda
+(with-eval-after-load 'org-agenda
+  (define-key org-agenda-mode-map
+    (kbd "RET") 'org-agenda-goto))
