@@ -16,7 +16,11 @@
     :defer t
     :init
     (setq wakatime-cfg "~/.wakatime.cfg")
-    (setq wakatime-bin (locate-file "wakatime-script.py" exec-path))
+    (setq wakatime-bin-name 
+          (if (spacemacs/system-is-mswindows)
+              "wakatime-script.py"
+            "wakatime"))
+    (setq wakatime-bin (locate-file wakatime-bin-name exec-path))
     (when (and (file-exists-p wakatime-bin)
                (file-exists-p wakatime-cfg))
       (progn
