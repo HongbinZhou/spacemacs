@@ -1,0 +1,33 @@
+#+TITLE: my-wakatime layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+
+#+CAPTION: logo
+
+# The maximum height of the logo should be 200 pixels.
+[[img/my-wakatime.png]]
+
+* Table of Contents                                        :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Install][Install]]
+ - [[Key bindings][Key bindings]]
+
+* Description
+As the default wakatime layer doesn't support:
+- getting wakatime binary from PATH, which makes easy for multi platform like in
+  Windows, or Mac.
+- reading key from .wakatime.cfg. I don't want to push my wakatime key to repo.
+* Install
+To use this contribution add it to your =~/.spacemacs=
+
+#+begin_src emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(my-wakatime))
+#+end_src
+
+You need to:
+- Check `which wakatime-script.py', make sure it can be found in your $PATH.
+- Prepare your ~/.wakatime.cfg. Here is an example of this config file: https://github.com/wakatime/wakatime#troubleshooting
+* Key bindings
+
+| Key Binding   | Description                  |
+|---------------+------------------------------|
+| ~<SPC> m a W~ | spacemacs/wakatime-dashboard |
