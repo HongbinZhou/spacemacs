@@ -36,4 +36,5 @@
       (interactive)
       (browse-url "wakatime.com/dashboard"))
     (spacemacs/set-leader-keys
-      "aW" 'spacemacs/wakatime-dashboard)))
+      "aW" 'spacemacs/wakatime-dashboard)
+    (spacemacs|diminish wakatime-mode " Ⓦa" " Wa")))
