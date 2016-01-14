@@ -34,7 +34,7 @@
     :config
     (defun spacemacs/wakatime-dashboard ()
       (interactive)
-      (browse-url "wakatime.com/dashboard"))
+      (browse-url "http://wakatime.com/dashboard"))
     (spacemacs/set-leader-keys
       "aW" 'spacemacs/wakatime-dashboard)
     (spacemacs|diminish wakatime-mode " Ⓦa" " Wa")))
