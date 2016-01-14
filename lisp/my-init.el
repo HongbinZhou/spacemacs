@@ -80,3 +80,7 @@
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map
     (kbd "RET") 'org-agenda-switch-to))
+
+;; added keybindings
+(spacemacs/set-leader-keys
+  "br" 'rename-buffer)
