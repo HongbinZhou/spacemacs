@@ -1645,29 +1645,33 @@ Late deadlines first, then scheduled, then non-late deadlines"
 
 (setq require-final-newline t)
 
-(defvar bh/insert-inactive-timestamp t)
+(defvar hbzhou/insert-inactive-timestamp-p t
+  "Whether to insert timestamp or not")
 
 (defun hbzhou/toggle-insert-inactive-timestamp ()
   (interactive)
-  (setq bh/insert-inactive-timestamp (not bh/insert-inactive-timestamp))
-  (message "Heading timestamps are %s" (if bh/insert-inactive-timestamp "ON" "OFF")))
+  (setq hbzhou/insert-inactive-timestamp-p (not hbzhou/insert-inactive-timestamp-p))
+  (message "Heading timestamps are %s" (if hbzhou/insert-inactive-timestamp-p "ON" "OFF")))
 
-(defun bh/insert-inactive-timestamp ()
+(spacemacs|add-toggle org-timestamp
+  :status hbzhou/insert-inactive-timestamp-p
+  :on (setq hbzhou/insert-inactive-timestamp-p t)
+  :off (setq hbzhou/insert-inactive-timestamp-p nil)
+  :documentation "Appending timestamps after Org head."
+  :evil-leader "tt")
+
+(defun hbzhou/insert-inactive-timestamp ()
   (interactive)
   (org-insert-time-stamp nil t t nil nil nil))
 
-(defun bh/insert-inactive-timestamp ()
-  (interactive)
-  (org-insert-time-stamp nil t t nil nil nil))
-
-(defun bh/insert-heading-inactive-timestamp ()
+(defun hbzhou/insert-heading-inactive-timestamp ()
   (save-excursion
-    (when bh/insert-inactive-timestamp
+    (when hbzhou/insert-inactive-timestamp-p
       (org-return)
       (org-cycle)
-      (bh/insert-inactive-timestamp))))
+      (hbzhou/insert-inactive-timestamp))))
 
-(add-hook 'org-insert-heading-hook 'bh/insert-heading-inactive-timestamp 'append)
+(add-hook 'org-insert-heading-hook 'hbzhou/insert-heading-inactive-timestamp 'append)
 
 (setq org-export-with-timestamps nil)
 
