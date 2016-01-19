@@ -34,3 +34,12 @@
 
 ;; make org-babel works in Windows
 (setq buffer-file-coding-system 'utf-8-unix)
+
+;; support launch cygwin bash
+(defun cygwin-shell ()
+  "Run cygwin bash in shell mode."
+  (interactive)
+  (let ((explicit-shell-file-name "C:/cygwin/bin/bash")
+        (explicit-bash-args '("--login" "-i")))
+    (call-interactively 'shell)))
+(global-set-key (kbd "C-c C-z") 'cygwin-shell)
