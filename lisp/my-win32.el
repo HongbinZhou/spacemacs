@@ -31,3 +31,6 @@
 ;; http://stackoverflow.com/questions/18684579/how-do-i-change-the-highlight-color-for-selected-text-with-emacs-deftheme
 ;; check colors using 'list-colors-display'
 (set-face-attribute 'region nil :background "#cd5b45")
+
+;; make org-babel works in Windows
+(setq buffer-file-coding-system 'utf-8-unix)
