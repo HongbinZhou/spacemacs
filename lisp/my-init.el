@@ -105,3 +105,8 @@
 (spacemacs/set-leader-keys
   "fem" 'spacemacs/find-my-initfile)
 
+;; nice key-bind for org src block!
+;; http://endlessparentheses.com/emacs-narrow-or-widen-dwim.html
+(eval-after-load 'org-src
+  '(define-key org-src-mode-map
+     "\C-x\C-s" #'org-edit-src-exit))
