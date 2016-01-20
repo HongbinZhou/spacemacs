@@ -33,7 +33,7 @@
 (set-face-attribute 'region nil :background "#cd5b45")
 
 ;; make org-babel works in Windows
-(setq buffer-file-coding-system 'utf-8-unix)
+(setq default-buffer-file-coding-system 'utf-8-unix)
 
 ;; support launch cygwin bash
 (defun cygwin-shell ()
