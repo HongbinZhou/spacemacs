@@ -19,18 +19,19 @@
           (wakatime-bin-name 
            (if (string-equal system-type "windows-nt")
                "wakatime-script.py"
-             "wakatime"))
-          (wakatime-bin (locate-file wakatime-bin-name exec-path)))
-      (when (and wakatime-bin
+             "wakatime")))
+      (let ((wakatime-bin (locate-file wakatime-bin-name exec-path)))
+        (if (and wakatime-bin
                  (file-exists-p wakatime-bin)
                  (file-exists-p wakatime-cfg))
-        (setq-default wakatime-cli-path wakatime-bin)
-        (setq-default wakatime-api-key
-                      (cadr (s-match "api_key\\s-*=\\s-*\\(.*\\)\\s-*"
-                                     (with-temp-buffer
-                                       (insert-file-contents wakatime-cfg)
-                                       (buffer-string)))))
-        (add-hook 'prog-mode-hook 'wakatime-mode)))
+            (progn
+              (setq-default wakatime-cli-path wakatime-bin)
+              (setq-default wakatime-api-key
+                            (cadr (s-match "api_key\\s-*=\\s-*\\(.*\\)\\s-*"
+                                           (with-temp-buffer
+                                             (insert-file-contents wakatime-cfg)
+                                             (buffer-string)))))
+              (add-hook 'prog-mode-hook 'wakatime-mode)))))
     :config
     (defun spacemacs/wakatime-dashboard ()
       (interactive)
