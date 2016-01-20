@@ -85,7 +85,23 @@
 (spacemacs/set-leader-keys
   "br" 'rename-buffer)
 
+
+;; recursive-narrow
+(use-package recursive-narrow)
+
 ;; narrow-indirect
-(define-key ctl-x-4-map "nd" 'ni-narrow-to-defun-indirect-other-window)
-(define-key ctl-x-4-map "nn" 'ni-narrow-to-region-indirect-other-window)
-(define-key ctl-x-4-map "np" 'ni-narrow-to-page-indirect-other-window)
+(use-package narrow-indirect
+  :init
+  (bind-key "nd" 'ni-narrow-to-defun-indirect-other-window   ctl-x-4-map)
+  (bind-key "nn" 'ni-narrow-to-region-indirect-other-window  ctl-x-4-map)
+  (bind-key "np" 'ni-narrow-to-page-indirect-other-window    ctl-x-4-map))
+
+;; Easy to find my-init.el
+(defun spacemacs/find-my-initfile ()
+  "Edit the `dotfile', in the current window."
+  (interactive)
+  (find-file-existing "~/.spacemacs.d/lisp/my-init.el"))
+
+(spacemacs/set-leader-keys
+  "fem" 'spacemacs/find-my-initfile)
+
