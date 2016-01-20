@@ -15,15 +15,15 @@
   (use-package wakatime-mode
     :defer t
     :init
-    (setq wakatime-cfg "~/.wakatime.cfg")
-    (setq wakatime-bin-name 
-          (if (spacemacs/system-is-mswindows)
-              "wakatime-script.py"
-            "wakatime"))
-    (setq wakatime-bin (locate-file wakatime-bin-name exec-path))
-    (when (and (file-exists-p wakatime-bin)
-               (file-exists-p wakatime-cfg))
-      (progn
+    (let ((wakatime-cfg "~/.wakatime.cfg")
+          (wakatime-bin-name 
+           (if (string-equal system-type "windows-nt")
+               "wakatime-script.py"
+             "wakatime"))
+          (wakatime-bin (locate-file wakatime-bin-name exec-path)))
+      (when (and wakatime-bin
+                 (file-exists-p wakatime-bin)
+                 (file-exists-p wakatime-cfg))
         (setq-default wakatime-cli-path wakatime-bin)
         (setq-default wakatime-api-key
                       (cadr (s-match "api_key\\s-*=\\s-*\\(.*\\)\\s-*"
