@@ -112,4 +112,6 @@
      "\C-x\C-s" #'org-edit-src-exit))
 
 ;; python breakpoint key
-(define-key python-mode-map (kbd "C-c C-b") 'python-toggle-breakpoint)
+(eval-after-load 'python-mode
+  (define-key python-mode-map
+    (kbd "C-c C-b") 'python-toggle-breakpoint))
