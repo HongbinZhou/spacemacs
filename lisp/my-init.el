@@ -115,3 +115,47 @@
 (add-hook 'python-mode-hook
           '(lambda () (define-key python-mode-map
                         (kbd "C-c C-b") 'python-toggle-breakpoint)))
+
+;; neat function to calc char occurences
+;; http://emacs.stackexchange.com/questions/8067/how-to-obtain-the-statistics-of-the-frequency-of-characters-in-a-buffer/8071#8071
+(defun char-stats (&optional case-sensitive)
+  (interactive "P")
+  (message "case-sensitive: %s" case-sensitive)
+  (let ((chars (make-char-table 'counting 0)) 
+        current)
+    (cl-labels ((%collect-statistics
+                 ()
+                 (goto-char (point-min))
+                 (while (not (eobp))
+                   (goto-char (1+ (point)))
+                   (setf current (preceding-char))
+                   (set-char-table-range
+                    chars current
+                    (1+ (char-table-range chars current))))))
+      (if case-sensitive
+          (save-excursion (%collect-statistics))
+        (let ((contents (buffer-substring-no-properties
+                         (point-min) (point-max))))
+          (with-temp-buffer
+            (insert contents)
+            (upcase-region (point-min) (point-max))
+            (%collect-statistics)))))
+    (with-current-buffer (get-buffer-create "*character-statistics*")
+      (erase-buffer)
+      (insert "| character | occurences |
+               |-----------+------------|\n")
+      (map-char-table
+       (lambda (key value)
+         (when (and (numberp key) (not (zerop value)))
+           (cl-case key
+             (?\n)
+             (?\| (insert (format "| \\vert | %d |\n" value)))
+             (otherwise (insert (format "| '%c' | %d |\n" key value))))))
+       chars)
+      (org-mode)
+      (indent-region (point-min) (point-max))
+      (goto-char 100)
+      (org-cycle)
+      (goto-char 79)
+      (org-table-sort-lines nil ?N))
+    (pop-to-buffer "*character-statistics*")))
