@@ -34,6 +34,8 @@ values."
      ;; markdown
      org
      python
+     ruby
+     ruby-on-rails
      ;; hbzhou: eshell is very slow when enable shell layer.
      ;; (shell :variables shell-default-shell 'eshell)
      ;; (shell :variables
