@@ -129,12 +129,19 @@
 
 (add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 
+;; https://www.emacswiki.org/emacs/OrgMode#toc20
+(defun ixp/org-buffer-files ()
+  "Return list of opened orgmode buffer files"
+  (mapcar (function buffer-file-name)
+          (org-buffer-list 'files)))
+
 ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                 (ixp/org-buffer-files :maxlevel . 1)
                                  (org-agenda-files :maxlevel . 9))))
 
 ; Use full outline paths for refile targets - we file directly with IDO
-(setq org-refile-use-outline-path t)
+(setq org-refile-use-outline-path 'file)
 
 ; Targets complete directly with IDO
 (setq org-outline-path-complete-in-steps nil)
