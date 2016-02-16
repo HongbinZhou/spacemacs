@@ -5,5 +5,5 @@
 export LC_CTYPE="zh_CN.UTF-8"
 
 ALTERNATE=""
-uname -a | grep "Cygwin" && echo "I am in Cygwin..." && ALTERNATE=" "
+uname -a | grep "Cygwin" && echo "I am in Cygwin..." && ALTERNATE=""
 emacsclient -a "$ALTERNATE" -t "$@"
