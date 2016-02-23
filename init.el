@@ -30,6 +30,7 @@ values."
      emacs-lisp
      git
      gtags
+     html
      ipython-notebook
      ;; markdown
      org
