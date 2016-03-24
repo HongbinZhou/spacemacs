@@ -22,7 +22,7 @@
    (insert "import pdb; pdb.set_trace()")
    (highlight-lines-matching-regexp "^[ ]*import pdb; pdb.set_trace()"))
 
-(define-key elpy-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
+(define-key python-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
 
 (defun python-interactive ()
   "Enter the interactive Python environment"

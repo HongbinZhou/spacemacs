@@ -34,7 +34,7 @@ values."
      ipython-notebook
      ;; markdown
      org
-     python
+     ;; python
      ruby
      ruby-on-rails
      ;; hbzhou: eshell is very slow when enable shell layer.
