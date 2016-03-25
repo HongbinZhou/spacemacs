@@ -117,6 +117,19 @@
           '(lambda () (define-key python-mode-map
                         (kbd "C-c C-b") 'python-toggle-breakpoint)))
 
+;; rails breakpoint key,
+;; C-c C-b was shadowed by ruby-send-block??
+(add-hook 'ruby-mode-hook
+          '(lambda () (define-key ruby-mode-map
+                        (kbd "C-c C-c") 'ruby-add-breakpoint)))
+
+(defun ruby-add-breakpoint ()
+  "Add a break point"
+  (interactive)
+  (newline-and-indent)
+  (insert "byebug")
+  (highlight-lines-matching-regexp "^[ ]*byebug"))
+
 ;; neat function to calc char occurences
 ;; http://emacs.stackexchange.com/questions/8067/how-to-obtain-the-statistics-of-the-frequency-of-characters-in-a-buffer/8071#8071
 (defun char-stats (&optional case-sensitive)
