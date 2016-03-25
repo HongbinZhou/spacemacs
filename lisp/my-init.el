@@ -74,7 +74,8 @@
   (setq helm-echo-input-in-header-line nil)
 
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
-  (global-set-key (kbd "M-i") 'helm-occur))
+  (global-set-key (kbd "M-i") 'helm-occur)
+  (global-set-key (kbd "C-c M-i") 'helm-imenu))
 
 ;; org-agenda
 (with-eval-after-load 'org-agenda
