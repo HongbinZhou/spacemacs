@@ -1899,6 +1899,10 @@ of the next."
   (interactive)
   (find-file "~/Dropbox/doc/org/notes.org"))
 
+(defun nuan ()
+  (interactive)
+  (find-file "~/Dropbox/doc/org/nuance.org"))
+
 (defun todo ()
   (interactive)
   (find-file "~/Dropbox/doc/org/todo.org"))
