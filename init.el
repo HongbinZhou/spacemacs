@@ -262,6 +262,8 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  (setq eyebrowse-keymap-prefix (kbd "C-c w"))
+  (setq evil-toggle-key "")
   )
 
 (defconst my-init-dir "~/.spacemacs.d/lisp") 
@@ -302,12 +304,3 @@ layers configuration. You are free to put any user code."
   (load-user-file "my-helper.el")
   (load-user-file "my-org.el")
  )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(evil-toggle-key ""))
