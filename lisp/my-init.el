@@ -218,3 +218,15 @@
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;; eval perl
+;;; ref: http://stackoverflow.com/questions/12408031/emacs-perl-mode-send-script-buffer-to-perl-interpreter
+(defun perl-on-buffer ()
+  (interactive)
+  (shell-command-on-region (point-min) (point-max) "perl" "*Perl Output*")
+  (display-buffer "*Perl Output*"))
+
+(eval-after-load 'perl-mode
+  '(define-key perl-mode-map (kbd "C-c C-c") 'perl-on-buffer))
