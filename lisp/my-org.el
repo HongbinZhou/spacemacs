@@ -1919,6 +1919,15 @@ of the next."
 (add-hook 'org-mode-hook
           (lambda () (setq truncate-lines nil)))
 
+;; org-reveal
+;; ref: https://github.com/yjwen/org-reveal
+;; (setq org-reveal-root "file:///c:/Users/hongbin_zhou/reveal.js-3.2.0")
+(setq org-reveal-root
+      (concat "file://" (expand-file-name "~/reveal.js-3.2.0")))
+
+(eval-after-load "org"
+    '(require 'ox-reveal nil t))
+
 ;; ;;; export to markdown
 ;; ;;; ref: http://stackoverflow.com/questions/22988092/emacs-org-mode-export-markdown
 ;; (eval-after-load "org"

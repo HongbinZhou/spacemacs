@@ -32,7 +32,7 @@ values."
      gtags
      html
      ipython-notebook
-     ;; markdown
+     markdown
      org
      ;; python
      ruby
@@ -63,6 +63,7 @@ values."
      fold-dwim-org
      recursive-narrow
      narrow-indirect
+     ox-reveal
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
