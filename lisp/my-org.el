@@ -1953,3 +1953,43 @@ of the next."
     (python . t)
     (emacs-lisp . t)
     ))
+
+
+;;; exclude org head in toc
+;;; ref: http://emacs.stackexchange.com/questions/3479/org-mode-exclude-specific-headlines-from-toc-when-exporting
+;;; Copy org-export-collect-headlines from elpa/org-20160404/ox.el,
+;;; then add suppting for :NOTOC: property
+(defun org-export-collect-headlines (info &optional n scope)
+  "Collect headlines in order to build a table of contents.
+
+INFO is a plist used as a communication channel.
+
+When optional argument N is an integer, it specifies the depth of
+the table of contents.  Otherwise, it is set to the value of the
+last headline level.  See `org-export-headline-levels' for more
+information.
+
+Optional argument SCOPE, when non-nil, is an element.  If it is
+a headline, only children of SCOPE are collected.  Otherwise,
+collect children of the headline containing provided element.  If
+there is no such headline, collect all headlines.  In any case,
+argument N becomes relative to the level of that headline.
+
+Return a list of all exportable headlines as parsed elements.
+Footnote sections are ignored."
+  (let* ((scope (cond ((not scope) (plist-get info :parse-tree))
+		      ((eq (org-element-type scope) 'headline) scope)
+		      ((org-export-get-parent-headline scope))
+		      (t (plist-get info :parse-tree))))
+	 (limit (plist-get info :headline-levels))
+	 (n (if (not (wholenump n)) limit
+	      (min (if (eq (org-element-type scope) 'org-data) n
+		     (+ (org-export-get-relative-level scope info) n))
+		   limit))))
+    (org-element-map (org-element-contents scope) 'headline
+      (lambda (headline)
+        (unless (or (org-element-property :NOTOC headline)               ; new condition
+                    (org-element-property :footnote-section-p headline)) ; old condition
+	  (let ((level (org-export-get-relative-level headline info)))
+	    (and (<= level n) headline))))
+      info)))
