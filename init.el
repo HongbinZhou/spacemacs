@@ -30,6 +30,7 @@ values."
      emacs-lisp
      git
      gtags
+     haskell
      html
      ipython-notebook
      markdown
