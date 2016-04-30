@@ -258,3 +258,8 @@
         (set-window-buffer (next-window) next-win-buffer)
         (select-window first-win)
         (if this-win-2nd (other-window 1))))))
+
+;; Git rid of weird behavior in interactive-haskell repl
+;; It should caused by the non-ascii "lambda" in the prompts,
+;; so just replace use just "> "
+(setq haskell-interactive-prompt "> ")
