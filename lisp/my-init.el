@@ -258,3 +258,29 @@
         (set-window-buffer (next-window) next-win-buffer)
         (select-window first-win)
         (if this-win-2nd (other-window 1))))))
+
+
+;; cperl
+(defun my-cperl-mode-hook ()
+  (setq cperl-indent-level 2
+        cperl-close-paren-offset -2
+        cperl-continued-statement-offset 2
+        cperl-indent-parens-as-block t
+        cperl-tab-always-indent t)
+  (setq indent-tabs-mode nil)
+  (setq tab-width 2)
+  (electric-indent-mode 1)
+  (line-number-mode t)
+  (hs-minor-mode t)
+  (fold-dwim-org/minor-mode t)
+
+  ;; handle trailing space
+  (setq-default show-trailing-whitespace t)
+  (setq-default require-final-newline t)
+  (setq-default delete-trailing-lines nil)
+  (add-hook 'local-write-file-hooks 'delete-trailing-whitespace)
+  (add-hook 'local-write-file-hooks 'untabify-all)
+  (add-hook 'local-write-file-hooks 'hbzhou/indent-all)
+  )
+
+(add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
