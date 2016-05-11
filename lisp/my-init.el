@@ -278,9 +278,9 @@
   (setq-default show-trailing-whitespace t)
   (setq-default require-final-newline t)
   (setq-default delete-trailing-lines nil)
-  (add-hook 'local-write-file-hooks 'delete-trailing-whitespace)
-  (add-hook 'local-write-file-hooks 'untabify-all)
-  (add-hook 'local-write-file-hooks 'hbzhou/indent-all)
+  ;; (add-hook 'local-write-file-hooks 'delete-trailing-whitespace)
+  ;; (add-hook 'local-write-file-hooks 'untabify-all)
+  ;; (add-hook 'local-write-file-hooks 'hbzhou/indent-all)
   )
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
