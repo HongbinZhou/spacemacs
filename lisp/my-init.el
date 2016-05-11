@@ -259,7 +259,6 @@
         (select-window first-win)
         (if this-win-2nd (other-window 1))))))
 
-
 ;; cperl
 (defun my-cperl-mode-hook ()
   (setq cperl-indent-level 2
@@ -284,3 +283,8 @@
   )
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
+
+;; Git rid of weird behavior in interactive-haskell repl
+;; It should caused by the non-ascii "lambda" in the prompts,
+;; so just replace use just "> "
+(setq haskell-interactive-prompt "> ")
