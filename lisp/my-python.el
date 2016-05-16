@@ -1,5 +1,5 @@
 
-(elpy-enable)
+;; (elpy-enable)
 (defun my-python-mode-hook ()
   (line-number-mode t)
   (hs-minor-mode t)

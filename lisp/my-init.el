@@ -112,11 +112,6 @@
   '(define-key org-src-mode-map
      "\C-x\C-s" #'org-edit-src-exit))
 
-;; python breakpoint key
-(add-hook 'python-mode-hook
-          '(lambda () (define-key python-mode-map
-                        (kbd "C-c C-b") 'python-toggle-breakpoint)))
-
 ;; rails breakpoint key,
 ;; C-c C-b was shadowed by ruby-send-block??
 (add-hook 'ruby-mode-hook
