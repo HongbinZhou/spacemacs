@@ -255,12 +255,13 @@
         (if this-win-2nd (other-window 1))))))
 
 ;; cperl
+(defalias 'perl-mode 'cperl-mode)
 (defun my-cperl-mode-hook ()
-  (setq cperl-indent-level 2
-        cperl-close-paren-offset -2
-        cperl-continued-statement-offset 2
-        cperl-indent-parens-as-block t
-        cperl-tab-always-indent t)
+  (setq cperl-indent-level 2)
+  (setq cperl-close-paren-offset -2)
+  (setq cperl-continued-statement-offset 0) ; set 0 to prevent indent next line's {}
+  (setq cperl-indent-parens-as-block nil)
+  (setq cperl-tab-always-indent t)
   (setq indent-tabs-mode nil)
   (setq tab-width 2)
   (electric-indent-mode 1)
