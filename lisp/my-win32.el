@@ -37,6 +37,10 @@
 ;; make org-babel works in Windows
 (setq default-buffer-file-coding-system 'utf-8-unix)
 
+;; prevent hang!
+;; ref: https://github.com/syl20bnr/spacemacs/issues/5778
+(add-hook 'org-mode-hook 'spacemacs/toggle-spelling-checking-off [append])
+
 ;; support launch cygwin bash
 (defun cygwin-shell ()
   "Run cygwin bash in shell mode."
