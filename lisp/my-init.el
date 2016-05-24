@@ -276,7 +276,6 @@
   ;; (add-hook 'local-write-file-hooks 'delete-trailing-whitespace)
   ;; (add-hook 'local-write-file-hooks 'untabify-all)
   ;; (add-hook 'local-write-file-hooks 'hbzhou/indent-all)
-  (define-key c-mode-base-map (kbd "TAB") 'fold-dwim-toggle)
   )
 
 (add-hook 'cperl-mode-hook 'my-cperl-mode-hook)
