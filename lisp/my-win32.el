@@ -27,7 +27,8 @@
         ad-do-it))
 (ad-activate 'grep-compute-defaults)
 
-(add-to-list 'auto-mode-alist '("\\.bat\\'" . bat-mode))
+(use-package bat-mode
+  :mode "\\.bat\\'")
 
 ;; set the active region color
 ;; http://stackoverflow.com/questions/18684579/how-do-i-change-the-highlight-color-for-selected-text-with-emacs-deftheme
