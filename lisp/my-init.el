@@ -1,10 +1,14 @@
 
+(defconst my-plugin-dir "~/.spacemacs.d/plugins")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; for those packages which don't included in elpa
 (add-to-list 'load-path "~/.spacemacs.d/plugins")
-(require 'mercurial)
+;; (require 'mercurial)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(use-package mercurial
+  :load-path my-plugin-dir)
 
 (global-set-key (kbd "C-2") 'set-mark-command)
 
