@@ -49,7 +49,3 @@
       (goto-char (point-max))
       (comint-send-input)
       (switch-to-buffer old-buf))))
-
-;;; http://stackoverflow.com/questions/1587972/how-to-display-indentation-guides-in-emacs
-(require 'highlight-indentation)
-(add-hook 'js2-mode-hook 'highlight-indentation-mode)
