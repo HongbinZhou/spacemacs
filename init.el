@@ -319,6 +319,7 @@ layers configuration. You are free to put any user code."
       (message "Linux"))))
 
   (load-user-file "my-init.el")
+  (load-user-file "my-utils.el")
   (load-user-file "my-helper.el")
   (load-user-file "my-org.el")
   (load-user-file "my-python.el")
