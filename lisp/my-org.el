@@ -1720,7 +1720,17 @@ of the next."
     (sh . t)
     (python . t)
     (emacs-lisp . t)
+    (plantuml . t)
+    (ditaa . t)
     ))
+
+(setq org-plantuml-jar-path
+      (locate-file "plantuml.jar" exec-path))
+
+(setq org-ditaa-jar-path
+      (locate-file "ditaa0_9.jar" exec-path))
+
+
 
 
 ;;; exclude org head in toc
