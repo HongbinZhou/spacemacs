@@ -61,12 +61,14 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages 
-   '(window-numbering
+   '(
+     ahg
      easy-kill
      fold-dwim-org
-     recursive-narrow
      narrow-indirect
      ox-reveal
+     recursive-narrow
+     window-numbering
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
