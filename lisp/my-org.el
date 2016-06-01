@@ -1722,6 +1722,7 @@ of the next."
     (emacs-lisp . t)
     (plantuml . t)
     (ditaa . t)
+    (ipython . t)
     ))
 
 (setq org-plantuml-jar-path
