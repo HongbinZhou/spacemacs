@@ -799,8 +799,6 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
 ;; If we leave Emacs running overnight - reset the appointments one minute after midnight
 (run-at-time "24:01" nil 'bh/org-agenda-to-appt)
 
-;; Enable abbrev-mode
-(add-hook 'org-mode-hook (lambda () (abbrev-mode 1)))
 
 ;; Skeletons
 ;;
@@ -1564,8 +1562,6 @@ Late deadlines first, then scheduled, then non-late deadlines"
           '(lambda () (setq fill-column 72))
           'append)
 
-;; flyspell mode for spell checking everywhere
-(add-hook 'org-mode-hook 'turn-on-flyspell 'append)
 
 ;; Disable keys in org-mode
 ;;    C-c [
@@ -1676,16 +1672,10 @@ of the next."
   (find-file org-default-todo-file))
 
 
-(add-hook 'org-mode-hook
-          (lambda () (setq truncate-lines nil)))
 
 (setq org-enable-priority-commands t)
 (setq org-default-priority ?E)
 (setq org-lowest-priority ?E)
-
-
-(add-hook 'org-mode-hook
-          (lambda () (setq truncate-lines nil)))
 
 ;; org-reveal
 ;; ref: https://github.com/yjwen/org-reveal
@@ -1700,10 +1690,6 @@ of the next."
 ;; ;;; ref: http://stackoverflow.com/questions/22988092/emacs-org-mode-export-markdown
 ;; (eval-after-load "org"
 ;;     '(require 'ox-md nil t))
-
-;;; enable auto-fill-mode
-;;; remember to use M-q !
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 
 ;; http://stackoverflow.com/questions/28913294/emacs-org-mode-language-of-time-stamps
@@ -1772,3 +1758,15 @@ Footnote sections are ignored."
           (let ((level (org-export-get-relative-level headline info)))
             (and (<= level n) headline))))
       info)))
+
+;;; enable auto-fill-mode
+;;; remember to use M-q !
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
+(add-hook 'org-mode-hook
+          (lambda () (setq truncate-lines nil)))
+
+;; disable these minor modes in org-mode
+(add-hook 'org-mode-hook (lambda () (abbrev-mode -1)))
+(add-hook 'org-mode-hook (lambda () (company-mode -1)))
+(add-hook 'org-mode-hook 'turn-off-flyspell 'append)
