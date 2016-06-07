@@ -130,7 +130,7 @@
 (use-package cperl-mode
   :mode "\\.pl\\'"
   :interpreter "perl"
-  :bind (:map perl-mode-map
+  :bind (:map cperl-mode-map
               ("C-c C-c" . perl-on-buffer))
   :config
   ;; eval perl
