@@ -142,3 +142,41 @@
   (mapc 'hb/delete-trailing-space-file
         (directory-files dir t ".el$")))
 
+;;;--------------------------------------------------
+;;; functions for publish html on the voice
+;;;--------------------------------------------------
+
+;;; delete given string in current buffer
+(defun hbzhou/string-replace (src tgt)
+  (goto-char 1)
+  (while (search-forward-regexp src nil t)
+    (replace-match tgt t nil)))
+
+;; delete <br > in org-mode exported html buffer
+(defun hbzhou/html-delete-<br> ()
+  (hbzhou/string-replace "\\(<br[[:space:]]*/>\\)" ""))
+
+;; delete "<colgroup> ... </colgroup>" in org-mode exported html buffer
+(defun hbzhou/html-delete-<colgroup> ()
+  (hbzhou/string-replace "\\(<colgroup>[\0-\377[:nonascii:]]*?</colgroup>\\)" ""))
+
+;; delete "<meta />" in org-mode exported html buffer
+(defun hbzhou/html-delete-<meta> ()
+  (hbzhou/string-replace "\\(<meta.*/>\\)" ""))
+
+;; delete "<div id="postamble" "status"> ... </div>" in org-mode exported html buffer
+(defun hbzhou/html-delete-<div-postamble> ()
+  (hbzhou/string-replace "\\(<div id=\"postamble\" class=\"status\">[\0-\377[:nonascii:]]*?</div>\\)" ""))
+
+;; add <p/> before each header to make page nicer
+(defun hbzhou/html-add-<p>-before-header ()
+  (hbzhou/string-replace "\\(<div id=\"outline-container\\)" "<p/>\n\\1"))
+
+;; make the voice html happy
+(defun hbzhou/html-make-thevoice-happy ()
+  (interactive)
+  (hbzhou/html-delete-<meta>)
+  (hbzhou/html-delete-<br>)
+  (hbzhou/html-delete-<colgroup>)
+  (hbzhou/html-delete-<div-postamble>)
+  (hbzhou/html-add-<p>-before-header))
