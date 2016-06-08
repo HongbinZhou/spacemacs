@@ -302,33 +302,6 @@ as the default task."
           ("FLAGGED" . ??)))
   )
 
-(defun bh/hide-other ()
-  (interactive)
-  (save-excursion
-    (org-back-to-heading 'invisible-ok)
-    (hide-other)
-    (org-cycle)
-    (org-cycle)
-    (org-cycle)))
-
-(defun bh/set-truncate-lines ()
-  "Toggle value of truncate-lines and refresh window display."
-  (interactive)
-  (setq truncate-lines (not truncate-lines))
-  ;; now refresh window display (an idiom from simple.el):
-  (save-excursion
-    (set-window-start (selected-window)
-                      (window-start (selected-window)))))
-
-;; Remove empty LOGBOOK drawers on clock out
-(defun bh/remove-empty-drawer-on-clock-out ()
-  (interactive)
-  (save-excursion
-    (beginning-of-line 0)
-    (org-remove-empty-drawer-at (point))))
-
-(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
-
 ;; https://www.emacswiki.org/emacs/OrgMode#toc20
 (defun ixp/org-buffer-files ()
   "Return list of opened orgmode buffer files"
@@ -1369,7 +1342,7 @@ Late deadlines first, then scheduled, then non-late deadlines"
 
                                 ("a" . ignore)
                                 ("d" . ignore)
-                                ("h" . bh/hide-other)
+                                ("h" . outline-hide-other)
                                 ("i" progn
                                  (forward-char 1)
                                  (call-interactively 'org-insert-heading-respect-content))
