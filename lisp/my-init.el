@@ -10,6 +10,9 @@
 ;; http://stackoverflow.com/questions/11847547/emacs-regexp-count-occurrences
 (global-set-key (kbd "C-c o") 'count-matches)
 
+;; https://www.emacswiki.org/emacs/WhichFuncMode
+(which-function-mode 1)
+
 ;;--------------------------------------------------
 ;; Package Settings
 ;;--------------------------------------------------
