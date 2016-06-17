@@ -160,6 +160,10 @@
 (defun hbzhou/html-delete-<colgroup> ()
   (hbzhou/string-replace "\\(<colgroup>[\0-\377[:nonascii:]]*?</colgroup>\\)" ""))
 
+;; delete "<head> ... </head>" in org-mode exported html buffer
+(defun hbzhou/html-delete-<head> ()
+  (hbzhou/string-replace "\\(<head>[\0-\377[:nonascii:]]*?</head>\\)" ""))
+
 ;; delete "<meta />" in org-mode exported html buffer
 (defun hbzhou/html-delete-<meta> ()
   (hbzhou/string-replace "\\(<meta.*/>\\)" ""))
@@ -175,8 +179,21 @@
 ;; make the voice html happy
 (defun hbzhou/html-make-thevoice-happy ()
   (interactive)
+  (hbzhou/html-delete-<head>)
   (hbzhou/html-delete-<meta>)
   (hbzhou/html-delete-<br>)
   (hbzhou/html-delete-<colgroup>)
   (hbzhou/html-delete-<div-postamble>)
   (hbzhou/html-add-<p>-before-header))
+
+
+;;; unfill paragraph
+;;; https://www.emacswiki.org/emacs/UnfillParagraph
+;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph    
+(defun unfill-paragraph (&optional region)
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+        ;; This would override `fill-column' if it's an integer.
+        (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
