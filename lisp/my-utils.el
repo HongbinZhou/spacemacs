@@ -152,9 +152,9 @@
   (while (search-forward-regexp src nil t)
     (replace-match tgt t nil)))
 
-;; delete <br > in org-mode exported html buffer
-(defun hbzhou/html-delete-<br> ()
-  (hbzhou/string-replace "\\(<br[[:space:]]*/>\\)" ""))
+;; replace <br /> by <br/> in org-mode exported html buffer
+(defun hbzhou/html-fix-<br> ()
+  (hbzhou/string-replace "\\(<br[[:space:]]*/>\\)" "<br/>"))
 
 ;; delete "<colgroup> ... </colgroup>" in org-mode exported html buffer
 (defun hbzhou/html-delete-<colgroup> ()
@@ -181,7 +181,7 @@
   (interactive)
   (hbzhou/html-delete-<head>)
   (hbzhou/html-delete-<meta>)
-  (hbzhou/html-delete-<br>)
+  (hbzhou/html-fix-<br>)
   (hbzhou/html-delete-<colgroup>)
   (hbzhou/html-delete-<div-postamble>)
   (hbzhou/html-add-<p>-before-header))
