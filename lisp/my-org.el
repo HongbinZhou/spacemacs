@@ -1742,4 +1742,4 @@ Footnote sections are ignored."
 ;; disable these minor modes in org-mode
 (add-hook 'org-mode-hook (lambda () (abbrev-mode -1)))
 (add-hook 'org-mode-hook (lambda () (company-mode -1)))
-(add-hook 'org-mode-hook 'turn-off-flyspell 'append)
+;; (add-hook 'org-mode-hook 'turn-off-flyspell 'append)
