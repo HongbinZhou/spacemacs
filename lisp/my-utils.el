@@ -176,6 +176,11 @@
 (defun hbzhou/html-add-<p>-before-header ()
   (hbzhou/string-replace "\\(<div id=\"outline-container\\)" "<p/>\n\\1"))
 
+;; add the voice toc
+(defun hbzhou/html-add-toc ()
+  (hbzhou/string-replace "\\(<div id=\"content\">\\)" 
+                         "<div id=\"content\">\n<p><img class=\"jive_macro jive_macro_toc\" jivemacro=\"toc\" /></p><p/>"))
+
 ;; make the voice html happy
 (defun hbzhou/html-make-thevoice-happy ()
   (interactive)
@@ -184,7 +189,8 @@
   (hbzhou/html-fix-<br>)
   (hbzhou/html-delete-<colgroup>)
   (hbzhou/html-delete-<div-postamble>)
-  (hbzhou/html-add-<p>-before-header))
+  (hbzhou/html-add-<p>-before-header)
+  (hbzhou/html-add-toc))
 
 
 ;;; unfill paragraph
