@@ -176,6 +176,31 @@
 (defun hbzhou/html-add-<p>-before-header ()
   (hbzhou/string-replace "\\(<div id=\"outline-container\\)" "<p/>\n\\1"))
 
+;; convert org-src to jive_macro_code
+(defun hbzhou/html-org-src-to-jive-code ()
+  (interactive)
+  (hbzhou/string-replace "<pre class=\"src src-\\(.*\\)\">"
+                         "<pre class=\"jive_text_macro jive_macro_code\" jivemacro=\"code\" ___default_attr=\"\\1\">")
+  ;; change ___default_attr="txt" to ___default_attr="plain"
+  (hbzhou/string-replace "___default_attr=\"\\(txt\\|ini\\)\""
+                         "___default_attr=\"plain\""))
+
+(defun hbzhou/add-<br/>-to-jive-src ()
+  (interactive)
+  (goto-char 1)
+  (let ((jivetag "\\(<pre class=\"jive_text_macro jive_macro_code\" jivemacro=\"code\" ___default_attr=\".*\">\\)\\([\0-\377[:nonascii:]]*?\\)\\(</pre>\\)"))
+    (save-match-data
+      (while (search-forward-regexp jivetag nil t)
+        (let ((begin (match-string 1))
+              (items (match-string 2))
+              (end (match-string 3)))
+          (let ((items-new (replace-regexp-in-string "$" "<br/>" items)))
+            (let ((output (concat begin items-new end)))
+              (replace-match "" t nil)
+              (insert output)
+              ;; (message "output: %s" output))
+            )))))))
+
 ;; add the voice toc
 (defun hbzhou/html-add-toc ()
   (hbzhou/string-replace "\\(<div id=\"content\">\\)" 
@@ -190,6 +215,8 @@
   (hbzhou/html-delete-<colgroup>)
   (hbzhou/html-delete-<div-postamble>)
   (hbzhou/html-add-<p>-before-header)
+  (hbzhou/html-org-src-to-jive-code)
+  (hbzhou/add-<br/>-to-jive-src)
   (hbzhou/html-add-toc))
 
 
