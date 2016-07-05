@@ -48,6 +48,10 @@
   (spacemacs/set-leader-keys
     "fem" 'spacemacs/find-my-initfile))
 
+;; ox-jive
+(use-package ox-jive
+  :load-path "~/.spacemacs.d/plugins")
+
 ;; mercurial
 (use-package mercurial
   :load-path "~/.spacemacs.d/plugins")
