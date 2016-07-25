@@ -65,7 +65,6 @@
 
 ;; convert org-src to jive_macro_code
 (defun org-jive-html-org-src-to-jive-code ()
-  (interactive)
   (org-jive-string-replace "<pre class=\"src src-\\(.*\\)\">"
                          "<pre class=\"jive_text_macro jive_macro_code\" jivemacro=\"code\" ___default_attr=\"\\1\">")
   ;; change ___default_attr="txt" to ___default_attr="plain"
@@ -73,7 +72,6 @@
                          "___default_attr=\"plain\""))
 
 (defun org-jive-add-<br/>-to-jive-src ()
-  (interactive)
   (goto-char 1)
   (let ((jivetag "\\(<pre class=\"jive_text_macro jive_macro_code\" jivemacro=\"code\" ___default_attr=\".*\">\\)\\([\0-\377[:nonascii:]]*?\\)\\(</pre>\\)"))
     (save-match-data
