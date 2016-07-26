@@ -13,6 +13,7 @@
   (setq org-default-refile-file "~/Dropbox/doc/org/refile.org")
   (setq org-default-worklog-file "~/Dropbox/doc/org/worklog.org")
   (setq org-default-diary-file "~/Dropbox/doc/diary/diary.org")
+  (setq org-default-review-file "~/Dropbox/doc/org/review.org")
 
   (setq org-agenda-files
         (append (if (file-exists-p org-default-refile-file)
@@ -21,6 +22,8 @@
                     (list org-default-todo-file) nil)
                 (if (file-exists-p org-default-worklog-file )
                     (list org-default-worklog-file) nil)
+                (if (file-exists-p org-default-review-file)
+                    (list org-default-review-file) nil)
                 (if (file-exists-p "~/Dropbox/doc/org/notes.org" )
                     (list "~/Dropbox/doc/org/notes.org") nil)))
   (setq org-todo-keywords
