@@ -36,6 +36,7 @@ values."
      ipython-notebook
      ivy
      javascript
+     latex
      markdown
      org
      ;; python
