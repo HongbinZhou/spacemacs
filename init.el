@@ -62,12 +62,13 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages 
+   dotspacemacs-additional-packages
    '(
      ahg
      easy-kill
      fold-dwim-org
      narrow-indirect
+     nodejs-repl
      ob-ipython
      ox-reveal
      recursive-narrow

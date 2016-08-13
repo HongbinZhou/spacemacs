@@ -178,3 +178,11 @@
   ;; It should caused by the non-ascii "lambda" in the prompts,
   ;; so just replace use just "> "
   (setq haskell-interactive-prompt "> "))
+
+;; javascript
+(use-package nodejs-repl
+  :mode "\\.js\\'"
+  :ensure t
+  :bind (("C-c C-e" . nodejs-repl-send-last-sexp)
+         ("C-c C-z" . nodejs-repl-switch-to-repl)
+         ("C-c C-c" . nodejs-repl-send-buffer)))
