@@ -181,7 +181,7 @@
 
 ;; javascript
 (use-package nodejs-repl
-  :mode "\\.js\\'"
+  :mode ("\\.js\\'" . web-mode)
   :ensure t
   :bind (("C-c C-e" . nodejs-repl-send-last-sexp)
          ("C-c C-z" . nodejs-repl-switch-to-repl)
