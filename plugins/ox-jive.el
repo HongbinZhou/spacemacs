@@ -43,6 +43,10 @@
 (defun org-jive-html-fix-<br> ()
   (org-jive-string-replace "\\(<br[[:space:]]*/>\\)" "<br/>"))
 
+;; add class="j-table jiveBorder" to <table> element
+(defun org-jive-html-add-class-to-<table> ()
+  (org-jive-string-replace "\\(<table\\)" "<table class=\"j-table jiveBorder\""))
+
 ;; delete "<colgroup> ... </colgroup>" in org-mode exported html buffer
 (defun org-jive-html-delete-<colgroup> ()
   (org-jive-string-replace "\\(<colgroup>[\0-\377[:nonascii:]]*?</colgroup>\\)" ""))
@@ -66,10 +70,7 @@
 ;; convert org-src to jive_macro_code
 (defun org-jive-html-org-src-to-jive-code ()
   (org-jive-string-replace "<pre class=\"src src-\\(.*\\)\">"
-                         "<pre class=\"jive_text_macro jive_macro_code\" jivemacro=\"code\" ___default_attr=\"\\1\">")
-  ;; change ___default_attr="txt" to ___default_attr="plain"
-  (org-jive-string-replace "___default_attr=\"\\(txt\\|ini\\)\""
-                         "___default_attr=\"plain\""))
+                           "<pre class=\"language-\\1 line-numbers\">"))
 
 (defun org-jive-add-<br/>-to-jive-src ()
   (goto-char 1)
@@ -101,7 +102,8 @@
   (org-jive-html-delete-<div-postamble>)
   (org-jive-html-add-<p>-before-header)
   (org-jive-html-org-src-to-jive-code)
-  (org-jive-add-<br/>-to-jive-src)
+  ;; (org-jive-add-<br/>-to-jive-src)
+  (org-jive-html-add-class-to-<table>)
   (org-jive-html-add-toc))
 
 (provide 'ox-jive)
