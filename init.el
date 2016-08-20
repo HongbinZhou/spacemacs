@@ -28,6 +28,7 @@ values."
      ;; chinese
      c-c++
      emacs-lisp
+     ess
      git
      gtags
      haskell
