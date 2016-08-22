@@ -58,7 +58,15 @@
 
 ;; setup files ending in ".tso" to open in nxml-mode
 (use-package nxml-mode
-  :mode "\\.tso\\'")
+  :mode "\\.tso\\'"
+  ;; see: http://ergoemacs.org/emacs/emacs_key_notation_return_vs_RET.html
+  ;; "<tab>" works in graphic user interface, while "TAB" works in terminal
+  :bind ("TAB" . noxml-fold-hide-show-element)
+  :config
+  (defun my-nxml-mode-hook ()
+    (require 'noxml-fold)
+    (noxml-fold-mode))
+  (add-hook 'nxml-mode-hook 'my-nxml-mode-hook))
 
 ;; magit
 (use-package magit
@@ -186,7 +194,3 @@
   :bind (("C-c C-e" . nodejs-repl-send-last-sexp)
          ("C-c C-z" . nodejs-repl-switch-to-repl)
          ("C-c C-c" . nodejs-repl-send-buffer)))
-
-;; fold xml
-(use-package noxml-fold
-  :mode ("\\.xml\\'" . noxml-mode))
