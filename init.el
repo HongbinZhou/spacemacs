@@ -70,6 +70,7 @@ values."
      fold-dwim-org
      narrow-indirect
      nodejs-repl
+     noxml-fold
      ob-ipython
      ox-reveal
      recursive-narrow

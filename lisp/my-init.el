@@ -186,3 +186,7 @@
   :bind (("C-c C-e" . nodejs-repl-send-last-sexp)
          ("C-c C-z" . nodejs-repl-switch-to-repl)
          ("C-c C-c" . nodejs-repl-send-buffer)))
+
+;; fold xml
+(use-package noxml-fold
+  :mode ("\\.xml\\'" . noxml-mode))
