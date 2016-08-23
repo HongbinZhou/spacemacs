@@ -11,7 +11,7 @@
 (setq ispell-personal-dictionary "C:/Program Files (x86)/Aspell/dict")
 ;; use American English as ispell default dictionary
 (ispell-change-dictionary "american" t)
-(setq magit-git-executable "C:/Program Files (x86)/Git/bin/git.exe")
+(setq magit-git-executable "C:/Program Files/Git/bin/git.exe")
 
 (global-set-key (kbd "C-x C-c") 'my-done)
 (defun my-done ()
