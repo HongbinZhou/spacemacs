@@ -61,11 +61,12 @@
   :mode "\\.tso\\'"
   ;; see: http://ergoemacs.org/emacs/emacs_key_notation_return_vs_RET.html
   ;; "<tab>" works in graphic user interface, while "TAB" works in terminal
-  :bind ("TAB" . noxml-fold-hide-show-element)
+  ;; :bind ("TAB" . noxml-fold-hide-show-element)
   :config
   (defun my-nxml-mode-hook ()
     (require 'noxml-fold)
-    (noxml-fold-mode))
+    (noxml-fold-mode)
+    (define-key nxml-mode-map (kbd "TAB") 'noxml-fold-hide-show-element))
   (add-hook 'nxml-mode-hook 'my-nxml-mode-hook))
 
 ;; magit
