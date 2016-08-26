@@ -1684,6 +1684,7 @@ of the next."
     (plantuml . t)
     (ditaa . t)
     (ipython . t)
+    (dot . t)
     ))
 
 (setq org-plantuml-jar-path

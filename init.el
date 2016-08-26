@@ -30,6 +30,7 @@ values."
      emacs-lisp
      ess
      git
+     graphviz
      gtags
      haskell
      helm
