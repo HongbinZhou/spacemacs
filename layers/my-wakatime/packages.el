@@ -13,7 +13,6 @@
 
 (defun my-wakatime/init-wakatime-mode ()
   (use-package wakatime-mode
-    :defer t
     :init
     (let ((wakatime-cfg "~/.wakatime.cfg")
           (wakatime-bin-name 
@@ -32,6 +31,13 @@
                                              (insert-file-contents wakatime-cfg)
                                              (buffer-string)))))
               (add-hook 'prog-mode-hook 'wakatime-mode)))))
+
+    ;; dirty fix on linux to use the 'cli.py' script instead of 'wakatime'
+    (if (string-equal system-type "gnu/linux")
+        (progn
+          (setq wakatime-python-path "/usr/bin/python2")
+          (setq wakatime-cli-path "/usr/lib/python2.7/site-packages/wakatime/cli.py")))
+
     :config
     (defun spacemacs/wakatime-dashboard ()
       (interactive)
