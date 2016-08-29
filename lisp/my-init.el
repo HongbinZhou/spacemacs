@@ -189,9 +189,27 @@
   (setq haskell-interactive-prompt "> "))
 
 ;; javascript
-(use-package nodejs-repl
+(use-package js2-mode
   :mode ("\\.js\\'" . js2-mode)
-  :ensure t
-  :bind (("C-c C-e" . nodejs-repl-send-last-sexp)
-         ("C-c C-z" . nodejs-repl-switch-to-repl)
-         ("C-c C-c" . nodejs-repl-send-buffer)))
+  :config
+  (defun my-js2-mode-hook ()
+    (require 'js-comint)
+    (setq inferior-js-program-command "node")
+    (setenv "NODE_NO_READLINE" "1")
+    (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
+    (local-set-key (kbd "C-x C-r") 'js-send-region)
+    (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
+    (local-set-key (kbd "C-c b") 'js-send-buffer)
+    (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
+
+    ;; ;; below is to use nodejs-repl instead
+    ;; (require 'nodejs-repl)
+    ;; (local-set-key (kbd "C-c C-e") 'nodejs-repl-send-last-sexp)
+    ;; (local-set-key (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)
+    ;; (local-set-key (kbd "C-c C-c") 'nodejs-repl-send-buffer)
+
+    )
+  (add-hook 'js2-mode-hook 'my-js2-mode-hook))
+
+
+
