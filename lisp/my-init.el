@@ -65,8 +65,7 @@
   :config
   (defun my-nxml-mode-hook ()
     (require 'noxml-fold)
-    (noxml-fold-mode)
-    (define-key nxml-mode-map (kbd "TAB") 'noxml-fold-hide-show-element))
+    (noxml-fold-mode))
   (add-hook 'nxml-mode-hook 'my-nxml-mode-hook))
 
 ;; magit
