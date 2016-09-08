@@ -1682,6 +1682,7 @@ of the next."
     (emacs-lisp . t)
     (plantuml . t)
     (ditaa . t)
+    (haskell . t)
     (ipython . t)
     (dot . t)
     ))
