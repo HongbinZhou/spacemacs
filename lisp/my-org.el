@@ -1675,17 +1675,19 @@ of the next."
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
- '( (perl . t)
-    (ruby . t)
-    (sh . t)
-    (python . t)
-    (emacs-lisp . t)
-    (plantuml . t)
-    (ditaa . t)
-    (haskell . t)
-    (ipython . t)
-    (dot . t)
-    ))
+ '(
+   (ditaa . t)
+   (dot . t)
+   (emacs-lisp . t)
+   (haskell . t)
+   (ipython . t)
+   (js . t)
+   (perl . t)
+   (plantuml . t)
+   (python . t)
+   (ruby . t)
+   (sh . t)
+   ))
 
 (setq org-plantuml-jar-path
       (locate-file "plantuml.jar" exec-path))
