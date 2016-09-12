@@ -56,15 +56,17 @@
   ;; Capture templates for: TODO tasks, Notes, appointments, phone calls,
   ;; meetings, and org-protocol
   (setq org-capture-templates
-        '(("t" "todo" entry (file+headline org-default-worklog-file "Worklog")
-           "* TODO %?\nSCHEDULED: %^t\n%U\n%a\n" :prepend t)
+        '(("t" "todo" entry (file org-default-refile-file)
+           "* TODO %?\nSCHEDULED: %^t\n%U\n" :prepend t)
+          ("w" "WorkTodo" entry (file+headline org-default-worklog-file "Worklog")
+           "* TODO %?\nSCHEDULED: %^t\n%U\n" :prepend t)
           ("n" "note" entry (file org-default-refile-file)
            "* %? :NOTE:\n%U\n%a\n")
           ("d" "Diary" entry (file+headline org-default-diary-file "2015") "* %U %?" :prepend t)
           ("w" "org-protocol" entry (file org-default-refile-file)
            "* TODO Review %c\n%U\n" :immediate-finish t)
           ("m" "Meeting" entry (file org-default-refile-file)
-           "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)))
+           "* MEETING Subject: %? :MEETING:\n%U" :clock-in t :clock-resume t)))
   ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
   (setq org-refile-targets
         '((nil :maxlevel . 9)
