@@ -57,7 +57,7 @@
   ;; meetings, and org-protocol
   (setq org-capture-templates
         '(("t" "todo" entry (file org-default-refile-file)
-           "* TODO %?\nSCHEDULED: %^t\n%U\n" :prepend t)
+           "* TODO %?\n%U\n" :prepend t)
           ("w" "WorkTodo" entry (file+headline org-default-worklog-file "Worklog")
            "* TODO %?\nSCHEDULED: %^t\n%U\n" :prepend t)
           ("n" "note" entry (file org-default-refile-file)
