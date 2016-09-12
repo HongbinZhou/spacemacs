@@ -1268,7 +1268,9 @@ Late deadlines first, then scheduled, then non-late deadlines"
 
 (setq org-insert-heading-respect-content nil)
 
-(setq org-reverse-note-order nil)
+;; org-refile item to the first item of the head
+;; see: http://orgmode.org/manual/Refile-and-copy.html#Refile-and-copy
+(setq org-reverse-note-order t)
 
 (setq org-show-following-heading t)
 (setq org-show-hierarchy-above t)
