@@ -63,10 +63,10 @@
           ("n" "note" entry (file org-default-refile-file)
            "* %? :NOTE:\n%U\n%a\n")
           ("d" "Diary" entry (file+headline org-default-diary-file "2015") "* %U %?" :prepend t)
-          ("w" "org-protocol" entry (file org-default-refile-file)
-           "* TODO Review %c\n%U\n" :immediate-finish t)
           ("m" "Meeting" entry (file org-default-refile-file)
-           "* MEETING %U %?\n" :clock-in t :clock-resume t)))
+           "* MEETING %U %?\n" :clock-in t :clock-resume t)
+          ("r" "Review" entry (file+headline org-default-review-file "Weekly Review")
+           "* %U\n** done\n%?\n** todo\n" :prepend t)))
   ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
   (setq org-refile-targets
         '((nil :maxlevel . 9)
