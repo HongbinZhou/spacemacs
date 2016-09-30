@@ -66,7 +66,7 @@
           ("w" "org-protocol" entry (file org-default-refile-file)
            "* TODO Review %c\n%U\n" :immediate-finish t)
           ("m" "Meeting" entry (file org-default-refile-file)
-           "* MEETING Subject: %? :MEETING:\n%U" :clock-in t :clock-resume t)))
+           "* MEETING %U %?\n" :clock-in t :clock-resume t)))
   ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
   (setq org-refile-targets
         '((nil :maxlevel . 9)
