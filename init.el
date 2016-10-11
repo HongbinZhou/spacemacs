@@ -291,6 +291,12 @@ any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
   (setq eyebrowse-keymap-prefix (kbd "C-c w"))
   (setq evil-toggle-key "")
+
+  (setq configuration-layer--elpa-archives
+        '(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
+          ("org-cn"   . "http://elpa.zilongshanren.com/org/")
+          ("gnu-cn"   . "http://elpa.zilongshanren.com/gnu/")))
+
   )
 
 (defconst my-init-dir "~/.spacemacs.d/lisp") 
