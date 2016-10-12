@@ -219,6 +219,8 @@
   (setq cfs-use-system-type t)
   (setq cfs-profiles
         '("program" "org-mode" "read-book"))
+  (setq cfs--current-profile "program")
+  (setq cfs--profiles-steps (quote (("program" . 3))))
 
   ;; enable chinese-fonts-setup when start emacs
   (chinese-fonts-setup-enable)
