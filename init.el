@@ -339,6 +339,7 @@ layers configuration. You are free to put any user code."
   (load-user-file "my-utils.el")
   (load-user-file "my-org.el")
   (load-user-file "my-python.el")
+  (load-user-file "my-tex.el")
  )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
