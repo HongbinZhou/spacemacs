@@ -8,24 +8,15 @@
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link))
   :config
-  (setq org-directory "~/Dropbox/doc/org")
-  (setq org-default-todo-file "~/Dropbox/doc/org/todo.org")
-  (setq org-default-refile-file "~/Dropbox/doc/org/refile.org")
-  (setq org-default-worklog-file "~/Dropbox/doc/org/worklog.org")
-  (setq org-default-diary-file "~/Dropbox/doc/diary/diary.org")
-  (setq org-default-review-file "~/Dropbox/doc/org/review.org")
+  (setq org-directory "~/GTD/org/")
+  (setq org-default-todo-file (concat org-directory "todo.org"))
+  (setq org-default-refile-file (concat org-directory "refile.org"))
+  (setq org-default-worklog-file (concat org-directory "worklog.org"))
+  (setq org-default-diary-file (concat org-directory "diary.org"))
+  (setq org-default-review-file (concat org-directory "review.org"))
 
-  (setq org-agenda-files
-        (append (if (file-exists-p org-default-refile-file)
-                    (list org-default-refile-file) nil)
-                (if (file-exists-p org-default-todo-file )
-                    (list org-default-todo-file) nil)
-                (if (file-exists-p org-default-worklog-file )
-                    (list org-default-worklog-file) nil)
-                (if (file-exists-p org-default-review-file)
-                    (list org-default-review-file) nil)
-                (if (file-exists-p "~/Dropbox/doc/org/notes.org" )
-                    (list "~/Dropbox/doc/org/notes.org") nil)))
+  (setq org-agenda-files '("~/GTD/org/"))
+
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
           (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")))
@@ -1627,29 +1618,6 @@ of the next."
   (shell-command (concat "cp "
                          (concat (file-name-sans-extension buffer-file-name) ".html")
                          " ~/dl")))
-
-
-(defun mydiary ()
-  (interactive)
-  (find-file org-default-diary-file))
-
-(defun worklog ()
-  (interactive)
-  (find-file org-default-worklog-file))
-
-(defun note ()
-  (interactive)
-  (find-file "~/Dropbox/doc/org/notes.org"))
-
-(defun nuan ()
-  (interactive)
-  (find-file "~/Dropbox/doc/org/nuance.org"))
-
-(defun todo ()
-  (interactive)
-  (find-file org-default-todo-file))
-
-
 
 (setq org-enable-priority-commands t)
 (setq org-default-priority ?E)
