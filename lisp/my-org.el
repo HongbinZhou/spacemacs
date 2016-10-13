@@ -1405,7 +1405,7 @@ Late deadlines first, then scheduled, then non-late deadlines"
 
 (defun hbzhou/insert-inactive-timestamp ()
   (interactive)
-  (org-insert-time-stamp nil t t nil nil nil))
+  (org-insert-time-stamp nil nil t nil nil nil))
 
 (defun hbzhou/insert-heading-inactive-timestamp ()
   (save-excursion
