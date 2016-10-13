@@ -45,8 +45,14 @@
     "Edit the `dotfile', in the current window."
     (interactive)
     (find-file-existing "~/.spacemacs.d/lisp/my-init.el"))
+  (defun spacemacs/find-my-org-initfile ()
+    "Edit the `dotfile', in the current window."
+    (interactive)
+    (find-file-existing "~/.spacemacs.d/lisp/my-org.el"))
   (spacemacs/set-leader-keys
-    "fem" 'spacemacs/find-my-initfile))
+    "fem" 'spacemacs/find-my-initfile)
+  (spacemacs/set-leader-keys
+    "feo" 'spacemacs/find-my-org-initfile))
 
 ;; ox-jive
 (use-package ox-jive
