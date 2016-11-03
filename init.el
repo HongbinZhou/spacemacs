@@ -335,7 +335,13 @@ layers configuration. You are free to put any user code."
       (message "Mac OS X")))
    ((string-equal system-type "gnu/linux") ; linux
     (progn
-      (message "Linux"))))
+      (message "Linux")
+      (setq org-file-apps
+            '((auto-mode . emacs)
+              ("\\.mm\\'" . default)
+              ("\\.x?html?\\'" . "firefox %s")
+              ("\\.pdf\\'" . default)))
+      )))
 
   (load-user-file "my-init.el")
   (load-user-file "my-utils.el")
