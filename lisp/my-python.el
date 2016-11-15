@@ -13,6 +13,17 @@
     (highlight-lines-matching-regexp "^[ ]*import pdb; pdb.set_trace()"))
   )
 
+;; case 24401 begin: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=24401
+(defun python-shell-completion-native-try ()
+  "Return non-nil if can trigger native completion."
+  (let ((python-shell-completion-native-enable t)
+        (python-shell-completion-native-output-timeout
+         python-shell-completion-native-try-output-timeout))
+    (python-shell-completion-native-get-completions
+     (get-buffer-process (current-buffer))
+     nil "_")))
+;; case 24401 done
+
 ;; (defun my-python-mode-hook ()
 ;;   (line-number-mode t)
 ;;   (hs-minor-mode t)
