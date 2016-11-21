@@ -4,6 +4,7 @@
 	 "C:/cygwin64/bin" ";"
 	 "C:/cygwin64/usr/sbin" ";"
    "C:/Program Files (x86)/Graphviz2.38/bin" ";" ;for dot graphviz
+   "C:\\Program Files (x86)\\Pandoc" ";"         ;pandoc
 	 (getenv "PATH")
 	 ))
 

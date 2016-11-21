@@ -232,3 +232,24 @@
   (chinese-fonts-setup-enable)
   ;; make spacemacs mode-line Unicode show correctly
   (cfs-set-spacemacs-fallback-fonts))
+
+
+(defun my-find-file-check-make-large-file-read-only-hook ()
+  "If a file is over a given size, make the buffer read only."
+  (when (> (buffer-size) (* 1024 1024))
+    (setq buffer-read-only t)
+    (buffer-disable-undo)
+    (fundamental-mode)))
+
+(add-hook 'find-file-hook 'my-find-file-check-make-large-file-read-only-hook)
+
+;; markdown-mode
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "pandoc -f markdown -t html --ascii --highlight-style pygments --mathjax"))
+
+
