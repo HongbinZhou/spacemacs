@@ -250,6 +250,6 @@
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "pandoc -f markdown -t html --ascii --highlight-style pygments --mathjax"))
+  :init (setq markdown-command "pandoc -from markdown -to html --standalone --mathjax --toc --number-sections"))
 
 
