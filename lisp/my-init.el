@@ -250,6 +250,13 @@
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "pandoc -from markdown -to html --standalone --mathjax --toc --number-sections"))
+  :init
+  (setq markdown-command "pandoc --from markdown --to html --standalone --mathjax --toc --number-sections")
+  (let ((pandoc-css-file (concat dotspacemacs-directory "templates/pandoc.css")))
+    (if (file-exists-p pandoc-css-file)
+        (setq pandoc-css-opt (concat " --css " pandoc-css-file " --self-contained"))
+      (setq pandoc-css-opt ""))
+    (setq markdown-command (concat markdown-command pandoc-css-opt))))
+
 
 
