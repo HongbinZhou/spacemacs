@@ -1661,6 +1661,8 @@ of the next."
    (sh . t)
    ))
 
+(setq org-babel-python-command "python2")
+
 (setq org-plantuml-jar-path
       (locate-file "plantuml.jar" exec-path))
 
