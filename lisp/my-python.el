@@ -65,3 +65,5 @@
 ;;       (goto-char (point-max))
 ;;       (comint-send-input)
 ;;       (switch-to-buffer old-buf))))
+
+(setq python-shell-interpreter "python2")
