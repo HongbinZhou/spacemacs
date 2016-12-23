@@ -40,7 +40,9 @@ values."
      javascript
      latex
      markdown
-     org
+     (org :variables
+          org-enable-reveal-js-support t
+          )
      ;; python
      react
      ruby
