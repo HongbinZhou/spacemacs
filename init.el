@@ -324,6 +324,10 @@ layers configuration. You are free to put any user code."
       (message "Microsoft Windows")
       (load-user-file "my-win32.el")
 
+      ;; for org-babel ditaa on windows
+      (setq org-ditaa-jar-path
+            (locate-file "ditaa0_9.jar" exec-path))
+
       ;; https://github.com/zilongshanren/Spacemacs-rocks/issues/6
       ;; https://github.com/syl20bnr/spacemacs/issues/3120
       ;; If the Hiragino Sans GB font is not found in your system, you could call this
@@ -343,6 +347,10 @@ layers configuration. You are free to put any user code."
               ("\\.mm\\'" . default)
               ("\\.x?html?\\'" . "firefox %s")
               ("\\.pdf\\'" . default)))
+
+      ;; for ditaa in linux
+      (setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0_10.jar")
+
       )))
 
   (load-user-file "my-init.el")
