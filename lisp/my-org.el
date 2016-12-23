@@ -705,7 +705,7 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
 ;; (require 'ox-ascii)
 ;; (require 'ox-beamer)
 
-(setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0_9.jar")
+(setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0_10.jar")
 ;; (setq org-plantuml-jar-path "~/java/plantuml.jar")
 
 (add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
