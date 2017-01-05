@@ -46,7 +46,9 @@ values."
      graphviz
      gtags
      haskell
-     helm
+     ;; don't use helm and ivy layer at the same time
+     ;; https://github.com/syl20bnr/spacemacs/issues/7581
+     ;; helm
      html
      ipython-notebook
      ivy
