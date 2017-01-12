@@ -709,6 +709,19 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
 
 (add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
 
+
+;; add background color to exported html src block
+;; when http://emacs.stackexchange.com/questions/3374/set-the-background-of-org-exported-code-blocks-according-to-theme
+(defun my-org-inline-css-hook (exporter)
+  "Insert custom inline css"
+  (when (eq exporter 'html)
+    (let ((my-pre-bg (face-background 'default)))
+      (setq org-html-head-include-default-style nil)
+      (setq org-html-head
+            (format "<style type=\"text/css\">\n pre.src { background-color: %s;}</style>\n" my-pre-bg)))))
+
+(add-hook 'org-export-before-processing-hook 'my-org-inline-css-hook)
+
 ;; Make babel results blocks lowercase
 (setq org-babel-results-keyword "results")
 
