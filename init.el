@@ -46,10 +46,13 @@ values."
      graphviz
      gtags
      haskell
+
      ;; don't use helm and ivy layer at the same time
-     ;; https://github.com/syl20bnr/spacemacs/issues/7581
-     ;; helm
-     html
+     ;; https://github.com/syl20bnr/spacemacs/issues/7581, but now gtags layer
+     ;; doesn't support ivy, have to use helm, see
+     ;; https://github.com/syl20bnr/spacemacs/issues/7713
+     helm
+
      ipython-notebook
      ivy
      javascript
