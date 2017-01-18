@@ -66,4 +66,4 @@
 ;;       (comint-send-input)
 ;;       (switch-to-buffer old-buf))))
 
-(setq python-shell-interpreter "python2")
+(setq python-shell-interpreter "ipython3")
