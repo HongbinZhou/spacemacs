@@ -258,6 +258,11 @@
       (setq pandoc-css-opt ""))
     (setq markdown-command (concat markdown-command pandoc-css-opt))))
 
+;; eshell
+(use-package eshell-mode
+  :init
+  (setq eshell-aliases-file (concat dotspacemacs-directory "eshell/alias")))
+
 ;; winum-mode
 (use-package winum
   :config

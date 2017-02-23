@@ -1,0 +1,39 @@
+alias riffwalker d:/webdemo/tools/hxtk2.1_patch9/bin.xxx/riffwalker.exe
+alias eval_report e:/ABX/Eval/V2/TTS_Eval-20160112/eval_report.exe $*
+alias dembh cd d:/repo/vocvoc_embh
+alias repo cd d:/repo/
+alias 0ps setq a lili917_with_strongphrase_wav/testnil.wav
+alias ppro pp tpromptnil_1_hybrid_poly.pcm
+alias tune_up_p python ../tune.py tpromptnil_1.lab -u 1 -i 0
+alias tune_gen_p python ../tune.py tpromptnil_1.lab -u 0
+alias pn pp tnavinil_1_hybrid_poly.pcm
+alias tune_gen python ../tune.py tnavinil_1.lab -u 0
+alias tune_update python ../tune.py tnavinil_1.lab -u 1 -i 0
+alias praw pp ../../../../voices/lili917_rawdata/nil.pcm
+alias pu1 pp pcm_untune/tpromptnil_1_hybrid_poly.pcm
+alias pt1 pp pcm_tune/tpromptnil_1_hybrid_poly.pcm
+alias pt pp pcm_tune/tnavinil_1_hybrid_poly.pcm
+alias pu pp pcm_untune/tnavinil_1_hybrid_poly.pcm
+alias 3c gawk {print $(NF-2), $(NF-1), $NF}
+alias hman hg help
+alias hbrs hg branches
+alias hbr hg branch
+alias hst hg status .
+alias hlog hg log . -r 3
+alias hdiff hg diff
+alias la ls -a
+alias expect alias send_user
+alias ll ls -l
+alias 3l ls
+alias pw sox -t waveaudio
+alias tmpp sox lili715_wav/tgennil.wav lili917_wav/tgennil_1_hybrid_poly.wav -t waveaudio
+alias tmpn sox lili715_wav/tnewsnil.wav lili917_wav/tnewsnil_1_hybrid_poly.wav -t waveaudio
+alias 0g sox lili715/tgennil.wav lili917/tgennil_1_hybrid_poly.wav -t waveaudio
+alias 0n pp lili917_pcm/pcm_untune/tnavinil*.pcm
+alias 0up pp ../lili917_pcm/pcm_tune_without_psola/tpromptnil_1_hybrid_poly.pcm
+alias test hi
+alias pp sox -t raw -r 22520 -b 16 -c 1 -e signed-integer $1 -t waveaudio 0
+alias 0p pp lili925-lili715-use-same-txt2spt/lili925_wav/test$1.wav; pp lili925-lili715/lili925_wav/test$1.wav
+alias dbuild cd d:/nuance/projects/embh/build
+alias meta python.exe d:/repo/vocvoc_embh/ttssrc.a/test/metatest/run.py $*
+alias splitall gawk.exe '{filename = sprintf("text%.2d.txt", NR); print >filename;close(filename)}' $*
