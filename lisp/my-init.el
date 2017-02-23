@@ -62,17 +62,10 @@
 (use-package mercurial
   :load-path "~/.spacemacs.d/plugins")
 
-;; setup files ending in ".tso" to open in nxml-mode
-(use-package nxml-mode
-  :mode "\\.tso\\'"
-  ;; see: http://ergoemacs.org/emacs/emacs_key_notation_return_vs_RET.html
-  ;; "<tab>" works in graphic user interface, while "TAB" works in terminal
-  ;; :bind ("TAB" . noxml-fold-hide-show-element)
-  :config
-  (defun my-nxml-mode-hook ()
-    (require 'noxml-fold)
-    (noxml-fold-mode))
-  (add-hook 'nxml-mode-hook 'my-nxml-mode-hook))
+;; setup files ending in ".tso" to open in web-mode
+;; not to use nxml-mode as it always hang when do comment/uncomment...
+(use-package web-mode
+  :mode ("\\.tso\\'" "\\.hdr\\'"))
 
 ;; magit
 (use-package magit
