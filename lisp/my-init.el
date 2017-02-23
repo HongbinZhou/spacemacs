@@ -283,3 +283,27 @@
               map))
     (winum-mode)))
 
+;; sox
+(defun eshell/soxplay (filename)
+  (interactive)
+  (let* ((file-ext (file-name-extension filename))
+         (audio-driver
+          (cond
+           ((string-equal system-type "windows-nt") ; Microsoft Windows
+            "waveaudio 0")
+           ((string-equal system-type "darwin")   ; Mac OS X
+            (message "command not implemented yet on OS X"))
+           ((string-equal system-type "gnu/linux") ; linux
+            "alsa")))
+         (sox-command
+          (cond
+           ((string-equal file-ext "wav")
+            (format "sox %s -t %s" filename audio-driver))
+           ((string-equal file-ext "pcm")
+            (format "sox -t raw -r 22520 -b 16 -c 1 -e signed-integer %s -t %s" filename audio-driver))
+           (t (message "ext %s not supported!" file-ext)))
+          ))
+         (message sox-command)
+         (insert sox-command)
+         (eshell-send-input)))
+
