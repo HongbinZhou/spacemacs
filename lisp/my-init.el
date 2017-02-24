@@ -5,6 +5,7 @@
 
 ;; unbind Ctrl+z
 (global-unset-key (kbd "C-x C-z"))
+(global-unset-key (kbd "C-\\"))
 
 ;; regexp count occurrences
 ;; http://stackoverflow.com/questions/11847547/emacs-regexp-count-occurrences
