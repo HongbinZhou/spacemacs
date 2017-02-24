@@ -296,7 +296,6 @@
             (format "sox -t raw -r 22520 -b 16 -c 1 -e signed-integer %s -t %s" filename audio-driver))
            (t (message "ext %s not supported!" file-ext)))
           ))
-         (message sox-command)
          (insert sox-command)
          (eshell-send-input)))
 
