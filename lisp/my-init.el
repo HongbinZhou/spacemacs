@@ -253,7 +253,7 @@
     (setq markdown-command (concat markdown-command pandoc-css-opt))))
 
 ;; eshell
-(use-package eshell-mode
+(use-package eshell
   :init
   (setq eshell-aliases-file (concat dotspacemacs-directory "eshell/alias")))
 
