@@ -1671,6 +1671,7 @@ of the next."
    (python . t)
    (ruby . t)
    (sh . t)
+   (C . t)
    ))
 
 (setq org-babel-python-command "python2")
