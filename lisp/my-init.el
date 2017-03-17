@@ -304,4 +304,4 @@
 (use-package projectile
   :config
   (progn
-    (spacemacs/set-leader-keys "pr" 'projectile-ripgrep))
+    (spacemacs/set-leader-keys "pr" 'projectile-ripgrep)))
