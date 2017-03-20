@@ -300,8 +300,3 @@
          (insert sox-command)
          (eshell-send-input)))
 
-;; projectile-ripgrep
-(use-package projectile
-  :config
-  (progn
-    (spacemacs/set-leader-keys "pr" 'projectile-ripgrep)))
