@@ -6,7 +6,8 @@
   :bind (("C-c a" . org-agenda)
          ("C-c b" . org-iswitchb)
          ("C-c c" . org-capture)
-         ("C-c l" . org-store-link))
+         ("C-c l" . org-store-link)
+         ("C-c o" . org-open-at-point-global))
   :config
   (setq org-directory "~/GTD/org/")
   (setq org-default-todo-file (concat org-directory "todo.org"))
