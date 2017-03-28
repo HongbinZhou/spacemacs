@@ -300,3 +300,16 @@
          (insert sox-command)
          (eshell-send-input)))
 
+;; --------------------------------------------------
+;; replace tgt by src in the whole buffer
+(defun string-replace (src tgt)
+  (goto-char 1)
+  (while (search-forward-regexp src nil t)
+    (replace-match tgt t nil)))
+
+;; add an start to each header for easy folding
+(defun convert-riff-chunk-to-org ()
+  (interactive)
+  (org-mode)
+  (string-replace "  Chunk" "* Chunk"))
+;; --------------------------------------------------
