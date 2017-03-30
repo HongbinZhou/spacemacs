@@ -55,6 +55,12 @@
 (defun org-jive-html-delete-<head> ()
   (org-jive-string-replace "\\(<head>[\0-\377[:nonascii:]]*?</head>\\)" ""))
 
+;; delete "<table-of-contents> ... </table-of-contents>" in org-mode exported html buffer
+(defun org-jive-html-delete-<table-of-contents> ()
+  (interactive)
+  (org-jive-string-replace "\\(<div id=\"text-table-of-contents\">[\0-\377[:nonascii:]]*?</div>\\)" "")
+  (org-jive-string-replace "\\(<div id=\"table-of-contents\">[\0-\377[:nonascii:]]*?</div>\\)" ""))
+
 ;; delete "<meta />" in org-mode exported html buffer
 (defun org-jive-html-delete-<meta> ()
   (org-jive-string-replace "\\(<meta.*/>\\)" ""))
@@ -89,20 +95,20 @@
 
 ;; add the voice toc
 (defun org-jive-html-add-toc ()
-  (org-jive-string-replace "\\(<div id=\"content\">\\)" 
-                         "<div id=\"content\">\n<p><img class=\"jive_macro jive_macro_toc\" jivemacro=\"toc\" /></p><p/>"))
+  (org-jive-string-replace "\\(<div id=\"content\">\\)"
+                         "<div id=\"content\">\n<p><img class=\"jive_macro jive_macro_toc\" jivemacro=\"toc\" /></p>"))
 
 ;; make the voice html happy
 (defun org-jive-html-make-thevoice-happy ()
   (interactive)
   (org-jive-html-delete-<head>)
   (org-jive-html-delete-<meta>)
+  (org-jive-html-delete-<table-of-contents>)
   (org-jive-html-fix-<br>)
   (org-jive-html-delete-<colgroup>)
   (org-jive-html-delete-<div-postamble>)
   (org-jive-html-add-<p>-before-header)
   (org-jive-html-org-src-to-jive-code)
-  ;; (org-jive-add-<br/>-to-jive-src)
   (org-jive-html-add-class-to-<table>)
   (org-jive-html-add-toc))
 
