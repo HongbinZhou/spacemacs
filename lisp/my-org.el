@@ -1770,6 +1770,4 @@ sheader? ")
       (insert (format "#+begin_src %s" language))
       (newline-and-indent)
       (insert text)
-      (newline)                         ;don't indent
-      (insert "#+end_src")
-      )))
+      (insert "#+end_src"))))
