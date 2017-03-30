@@ -721,7 +721,8 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
       (setq org-html-head
             (format "<style type=\"text/css\">\n pre.src { background-color: %s;}</style>\n" my-pre-bg)))))
 
-(add-hook 'org-export-before-processing-hook 'my-org-inline-css-hook)
+;; [2017-03-30 Thu] disable css hook temporarily
+;; (add-hook 'org-export-before-processing-hook 'my-org-inline-css-hook)
 
 ;; Make babel results blocks lowercase
 (setq org-babel-results-keyword "results")
@@ -1730,3 +1731,45 @@ Footnote sections are ignored."
 (add-hook 'org-mode-hook (lambda () (abbrev-mode -1)))
 (add-hook 'org-mode-hook (lambda () (company-mode -1)))
 ;; (add-hook 'org-mode-hook 'turn-off-flyspell 'append)
+
+;; --------------------------------------------------
+;; org babel source code
+;; --------------------------------------------------
+
+;; http://emacs.stackexchange.com/questions/12841/quickly-insert-source-blocks-in-org-mode
+(defun hbzhou/org-insert-source-block (name language switches header)
+  "Asks name, language, switches, header.
+Inserts org-mode source code snippet"
+  (interactive "sname?
+slanguage?
+sswitches?
+sheader? ")
+  (insert
+   (if (string= name "")
+       ""
+     (concat "#+NAME: " name) )
+   (format "
+#+BEGIN_SRC %s %s %s
+
+#+END_SRC" language switches header
+)
+   )
+  (forward-line -1)
+  (goto-char (line-end-position))
+  )
+
+(defun hbzhou/org-move-region-to-source (language)
+  "Convert selected region to org babel src block."
+  (interactive "slanguage?")
+  (let* ((bounds (if (use-region-p)
+                     (cons (region-beginning) (region-end))
+                   (bounds-of-thing-at-point 'sentence)))
+         (text   (buffer-substring-no-properties (car bounds) (cdr bounds))))
+    (when bounds
+      (delete-region (car bounds) (cdr bounds))
+      (insert (format "#+begin_src %s" language))
+      (newline-and-indent)
+      (insert text)
+      (newline)                         ;don't indent
+      (insert "#+end_src")
+      )))
