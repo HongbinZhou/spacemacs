@@ -15,6 +15,7 @@
   (setq org-default-worklog-file (concat org-directory "worklog.org"))
   (setq org-default-diary-file (concat org-directory "diary.org"))
   (setq org-default-review-file (concat org-directory "review.org"))
+  (setq org-default-scrum-file (concat org-directory "scrum.org"))
 
   (setq org-agenda-files '("~/GTD/org/"))
 
@@ -57,7 +58,11 @@
           ("d" "Diary" entry (file+headline org-default-diary-file "2015") "* %U %?" :prepend t)
           ("m" "Meeting" entry (file org-default-refile-file)
            "* MEETING %U %?\n" :clock-in t :clock-resume t)
-          ("r" "Review" entry (file+headline org-default-review-file "Weekly Review")
+          ("r" "Weekly Review" entry (file+headline org-default-review-file "Weekly Review")
+           "* %U\n** done\n%?\n** todo\n" :prepend t)
+          ("u" "Unicorn Weekly" entry (file+headline org-default-review-file "Unicorn Weekly")
+           "* %U\n** done\n%?\n** todo\n" :prepend t)
+          ("s" "Scrum" entry (file+headline org-default-scrum-file "Unicorn Scrum")
            "* %U\n** done\n%?\n** todo\n" :prepend t)))
   ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
   (setq org-refile-targets
