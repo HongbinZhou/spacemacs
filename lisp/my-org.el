@@ -1677,7 +1677,9 @@ of the next."
    (plantuml . t)
    (python . t)
    (ruby . t)
-   (sh . t)
+   (shell . t) ;use shell instead of sh, otherwise, it will use
+                                        ;/usr/share/emacs/25.1/lisp/org/ob-sh.el.gz, in which it uses
+                                        ;deprecated function org-babel-get-header
    (C . t)
    ))
 
