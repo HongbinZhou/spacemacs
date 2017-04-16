@@ -66,7 +66,7 @@
 ;; setup files ending in ".tso" to open in web-mode
 ;; not to use nxml-mode as it always hang when do comment/uncomment...
 (use-package web-mode
-  :mode ("\\.tso\\'" "\\.hdr\\'"))
+  :mode ("\\.tso\\'" "\\.hdr\\'" "\\.xml\\'"))
 
 ;; magit
 (use-package magit
