@@ -1426,6 +1426,8 @@ Late deadlines first, then scheduled, then non-late deadlines"
   (interactive)
   (org-insert-time-stamp nil nil t nil nil nil))
 
+(global-set-key (kbd "C-c t") 'hbzhou/insert-inactive-timestamp)
+
 (defun hbzhou/insert-heading-inactive-timestamp ()
   (save-excursion
     (when hbzhou/insert-inactive-timestamp-p
