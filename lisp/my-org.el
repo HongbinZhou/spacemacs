@@ -2,7 +2,7 @@
 (require 'org-habit)
 
 (use-package org
-  :mode ("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode)
+  :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :bind (("C-c a" . org-agenda)
          ("C-c b" . org-iswitchb)
          ("C-c c" . org-capture)
@@ -1268,8 +1268,6 @@ Late deadlines first, then scheduled, then non-late deadlines"
 (setq org-enforce-todo-dependencies t)
 
 (setq org-hide-leading-stars nil)
-
-(setq org-startup-indented t)
 
 (setq org-cycle-separator-lines 0)
 
