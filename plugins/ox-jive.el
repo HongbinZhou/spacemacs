@@ -57,7 +57,6 @@
 
 ;; delete "<table-of-contents> ... </table-of-contents>" in org-mode exported html buffer
 (defun org-jive-html-delete-<table-of-contents> ()
-  (interactive)
   (org-jive-string-replace "\\(<div id=\"text-table-of-contents\">[\0-\377[:nonascii:]]*?</div>\\)" "")
   (org-jive-string-replace "\\(<div id=\"table-of-contents\">[\0-\377[:nonascii:]]*?</div>\\)" ""))
 
