@@ -275,7 +275,7 @@
               (define-key map (kbd "M-7") 'winum-select-window-7)
               (define-key map (kbd "M-8") 'winum-select-window-8)
               map))
-    (setq window-numbering-scope 'frame-local) ;change global to frame-local, https://github.com/deb0ch/emacs-winum
+    (setq winum-scope 'frame-local) ;change global to frame-local, https://github.com/deb0ch/emacs-winum
     (winum-mode)))
 
 ;; sox
