@@ -1403,8 +1403,6 @@ Late deadlines first, then scheduled, then non-late deadlines"
 
 (require 'org-protocol)
 
-(setq require-final-newline t)
-
 (defvar hbzhou/insert-inactive-timestamp-p t
   "Whether to insert timestamp or not")
 
