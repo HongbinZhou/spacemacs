@@ -1665,6 +1665,7 @@ of the next."
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
+   (C . t)
    (ditaa . t)
    (dot . t)
    (emacs-lisp . t)
