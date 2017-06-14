@@ -40,6 +40,7 @@ values."
      better-defaults
      ;; chinese
      c-c++
+     csv
      docker
      emacs-lisp
      ess
