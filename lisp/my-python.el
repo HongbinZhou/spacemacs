@@ -66,4 +66,9 @@
 ;;       (comint-send-input)
 ;;       (switch-to-buffer old-buf))))
 
-(setq python-shell-interpreter "ipython3")
+;; https://emacs.stackexchange.com/questions/24453/weird-shell-output-when-using-ipython-5
+;; IPython 5 has a new terminal interface, which is not compatible with Emacs'
+;; inferior shells. To fix it, add the --simple-prompt flag to the IPython
+;; command:
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "--simple-prompt -i")
