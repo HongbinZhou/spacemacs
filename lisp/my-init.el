@@ -322,3 +322,7 @@
 ;; ref: https://github.com/syl20bnr/spacemacs/issues/4380
 (add-hook 'org-capture-mode-hook 'evil-insert-state)
 (add-hook 'with-editor-mode-hook 'evil-insert-state)
+
+;; justfile
+(use-package makefile-mode
+  :mode (("justfile" . makefile-mode)))
