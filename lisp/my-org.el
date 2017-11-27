@@ -1151,11 +1151,6 @@ so change the default 'F' binding in the agenda to allow both"
 ;; Start the weekly agenda on Today, set it to t if want start on Monday
 (setq org-agenda-start-on-weekday nil)
 
-;; Enable display of the time grid so we can see the marker for the current time
-(setq org-agenda-time-grid (quote ((daily today remove-match)
-                                   #("----------------" 0 16 (org-heading t))
-                                   (0900 1100 1300 1500 1700))))
-
 ;; Display tags farther right
 (setq org-agenda-tags-column -102)
 
