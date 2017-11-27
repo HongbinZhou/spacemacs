@@ -213,19 +213,18 @@
 
 
 ;;; set chinese font
-(use-package chinese-fonts-setup
+(use-package cnfonts
   :config
-  (setq cfs-profiles-directory (concat dotspacemacs-directory "chinese-fonts-setup/"))
-  (setq cfs-use-system-type t)
-  (setq cfs-profiles
+  (setq cnfonts-profiles-directory (concat dotspacemacs-directory "cnfonts"))
+  (setq cnfonts-use-system-type t)
+  (setq cnfonts-profiles
         '("program" "org-mode" "read-book"))
-  (setq cfs--current-profile "program")
-  (setq cfs--profiles-steps (quote (("program" . 3))))
+  (setq cnfonts--current-profile "program")
 
-  ;; enable chinese-fonts-setup when start emacs
-  (chinese-fonts-setup-enable)
+  ;; enable cnfonts when start emacs
+  (cnfonts-enable)
   ;; make spacemacs mode-line Unicode show correctly
-  (cfs-set-spacemacs-fallback-fonts))
+  (cnfonts-set-spacemacs-fallback-fonts))
 
 
 (defun my-find-file-check-make-large-file-read-only-hook ()
