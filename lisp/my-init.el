@@ -13,7 +13,7 @@
 
 ;; https://www.emacswiki.org/emacs/WhichFuncMode
 ;; [2017-12-05 Tue]: turn on which-function-mode, otherwise file name will be missing in mode-line
-;; (which-function-mode 1)
+(which-function-mode 1)
 
 ;;--------------------------------------------------
 ;; Package Settings
