@@ -326,3 +326,10 @@
 ;; justfile
 (use-package makefile-mode
   :mode (("justfile" . makefile-mode)))
+
+;; run shell command on current buffer file, for example:
+;; (execute-shell-command-on-buffer tomlv) will validate current file if it's a
+;; valid toml.
+(defun execute-shell-command-on-buffer (shell-command-text)
+  (interactive "MShell command:")
+  (shell-command (format "%s %s" shell-command-text (shell-quote-argument buffer-file-name))))
