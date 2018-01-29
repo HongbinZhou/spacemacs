@@ -319,7 +319,6 @@ as the default task."
              '("W" "Completed and/or deferred tasks from previous week"
                ((agenda "" ((org-agenda-span 7)
                             (org-agenda-start-day "-7d")
-                            (org-agenda-entry-types '(:timestamp))
                             (org-agenda-show-log t))))))
 
 (defvar bh/organization-task-id "eb155a82-92b2-4f25-a3c6-0304591af2f9")
