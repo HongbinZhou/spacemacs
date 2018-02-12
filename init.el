@@ -522,7 +522,7 @@ before packages are loaded."
 
       ;; for org-babel ditaa on windows
       (setq org-ditaa-jar-path
-            (locate-file "ditaa0_9.jar" exec-path))
+            (locate-file "ditaa0_9.jar" exec-path))))
 
    ((string-equal system-type "darwin")   ; Mac OS X
     (progn
