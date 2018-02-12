@@ -216,7 +216,7 @@
 ;;; set chinese font
 (use-package cnfonts
   :config
-  (setq cnfonts-profiles-directory (concat dotspacemacs-directory "cnfonts"))
+  (setq cnfonts-directory (concat dotspacemacs-directory "cnfonts"))
   (setq cnfonts-use-system-type t)
   (setq cnfonts-profiles
         '("program" "org-mode" "read-book"))
