@@ -525,14 +525,6 @@ before packages are loaded."
       (setq org-ditaa-jar-path
             (locate-file "ditaa0_9.jar" exec-path))
 
-      ;; https://github.com/zilongshanren/Spacemacs-rocks/issues/6
-      ;; https://github.com/syl20bnr/spacemacs/issues/3120
-      ;; If the Hiragino Sans GB font is not found in your system, you could call this
-      ;; method in dotspacemacs/config function with a different Chinese font name.
-      ;; If you are using mac, you could put the following code in your dotspacemacs/config function.
-      (when (configuration-layer/layer-usedp 'chinese)
-        (spacemacs//set-monospaced-font "Source Code Pro"  "Microsoft Yahei" 14 16))))
-
    ((string-equal system-type "darwin")   ; Mac OS X
     (progn
       (message "Mac OS X")
