@@ -40,7 +40,6 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      (auto-completion :disabled-for org)
      better-defaults
-     ;; chinese
      (c-c++ :variables c-c++-enable-clang-support t)
      csv
      docker
