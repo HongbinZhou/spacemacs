@@ -1574,11 +1574,6 @@ Late deadlines first, then scheduled, then non-late deadlines"
 
 (setq org-catch-invisible-edits 'error)
 
-(setq org-export-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(set-charset-priority 'unicode)
-(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
-
 (setq org-time-clocksum-format
       '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
 
