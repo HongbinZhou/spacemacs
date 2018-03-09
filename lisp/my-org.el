@@ -60,10 +60,9 @@
            "* MEETING %U %?\n" :clock-in t :clock-resume t)
           ("r" "Weekly Review" entry (file+headline org-default-review-file "Weekly Review")
            "* %U\n** done\n%?\n** todo\n" :prepend t)
-          ("u" "Unicorn Weekly" entry (file+headline org-default-review-file "Unicorn Weekly")
-           "* %U\n** done\n%?\n** todo\n" :prepend t)
-          ("s" "Scrum" entry (file+headline org-default-scrum-file "Unicorn Scrum")
-           "* %U\n** done\n%?\n** todo\n" :prepend t)))
+          ("b" "BE Weekly Sync" entry (file+headline org-default-review-file "BE Weekly Sync")
+           "* %U\n %?" :prepend t)
+          ))
   ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
   (setq org-refile-targets
         '((nil :maxlevel . 9)
