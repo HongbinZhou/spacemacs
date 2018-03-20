@@ -139,8 +139,14 @@
 ;;; delete trailing space for all el files in given dir
 (defun hbzhou/delete-trailing-space-dir-el (dir)
   (interactive "D")
-  (mapc 'hb/delete-trailing-space-file
-        (directory-files dir t ".el$")))
+  (mapc 'hbzhou/delete-trailing-space-file
+        (directory-files-recursively dir ".el$")))
+
+;;; delete trailing space for all el files in given dir
+(defun hbzhou/delete-trailing-space-dir-py (dir)
+  (interactive "D")
+  (mapc 'hbzhou/delete-trailing-space-file
+        (directory-files-recursively dir ".py$")))
 
 ;;; unfill paragraph
 ;;; https://www.emacswiki.org/emacs/UnfillParagraph
