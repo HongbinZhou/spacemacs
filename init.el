@@ -40,6 +40,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      (auto-completion :disabled-for org)
      better-defaults
+     bibtex
      (c-c++ :variables c-c++-enable-clang-support t)
      csv
      docker
@@ -55,6 +56,7 @@ This function should only modify configuration layer settings."
      ;; doesn't support ivy, have to use helm, see
      ;; https://github.com/syl20bnr/spacemacs/issues/7713
      helm
+     html
 
      ipython-notebook
      ivy
