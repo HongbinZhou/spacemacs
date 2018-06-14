@@ -1278,9 +1278,6 @@ Late deadlines first, then scheduled, then non-late deadlines"
 (defun bh/is-scheduled-late (date-str)
   (string-match "Sched\.\\(.*\\)x:" date-str))
 
-;; Use sticky agenda's so they persist
-(setq org-agenda-sticky t)
-
 ;; The following setting is different from the document so that you
 ;; can override the document path by setting your path in the variable
 ;; org-mode-user-contrib-lisp-path
