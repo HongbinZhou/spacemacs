@@ -103,12 +103,11 @@ This function should only modify configuration layer settings."
      cnfonts
      easy-kill
      fold-dwim-org
+     interleave
      js-comint
      narrow-indirect
      nodejs-repl
      noxml-fold
-     ob-ipython
-     ox-reveal
      rg                                 ;thanks: https://github.com/dajva/rg.el
      recursive-narrow
      unbound                            ;http://stackoverflow.com/questions/1144424/are-there-any-emacs-key-combinations-reserved-for-custom-commands

@@ -1,6 +1,26 @@
 
 (require 'org-habit)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; papers default path
+(setq org-default-paper-directory (file-name-as-directory "~/gitlab/papers"))
+(setq org-default-paper-notes-file (concat org-default-paper-directory "papers.org"))
+(setq org-default-paper-bibtex-file (concat org-default-paper-directory "papers.bib"))
+(setq org-default-paper-pdf-directory (concat org-default-paper-directory "db"))
+
+(use-package org-ref
+  :config
+  (setq org-ref-bibliography-notes org-default-paper-notes-file)
+  (setq org-ref-default-bibliography org-default-paper-bibtex-file)
+  (setq org-ref-pdf-directory org-default-paper-pdf-directory))
+
+(use-package helm-bibtex
+  :config
+  (setq helm-bibtex-notes-path org-default-paper-notes-file)
+  (setq helm-bibtex-bibliography org-default-paper-bibtex-file)
+  (setq helm-bibtex-library-path org-default-paper-pdf-directory))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package org
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :bind (("C-c a" . org-agenda)
@@ -9,7 +29,7 @@
          ("C-c l" . org-store-link)
          ("C-c o" . org-open-at-point-global))
   :config
-  (setq org-directory "~/GTD/org/")
+  (setq org-directory (file-name-as-directory "~/GTD/org"))
   (setq org-default-todo-file (concat org-directory "todo.org"))
   (setq org-default-refile-file (concat org-directory "refile.org"))
   (setq org-default-worklog-file (concat org-directory "worklog.org"))
@@ -17,7 +37,7 @@
   (setq org-default-review-file (concat org-directory "review.org"))
   (setq org-default-scrum-file (concat org-directory "scrum.org"))
 
-  (setq org-agenda-files '("~/GTD/org/"))
+  (setq org-agenda-files (list org-directory org-default-paper-directory))
 
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
@@ -62,6 +82,15 @@
            "* %U\n** done\n%?\n** todo\n" :prepend t)
           ("b" "BE Weekly Sync" entry (file+headline org-default-review-file "BE Weekly Sync")
            "* %U\n %?" :prepend t)
+          ("p"                                               ; key
+           "Paper"                                           ; name
+           entry                                             ; type
+           (file org-default-refile-file)                    ; target
+           "* TODO %^{Title} %(org-set-tags)  :paper:\n:PROPERTIES:\n:Created: %U\n:Linked: %a\n:END:\n%i\nBrief description:\n%?" ; template
+           :prepend t                   ; properties
+           :empty-lines 1               ; properties
+           :created t                   ; properties
+           )
           ))
   ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
   (setq org-refile-targets
