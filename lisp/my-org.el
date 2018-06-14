@@ -19,6 +19,10 @@
   (setq helm-bibtex-notes-path org-default-paper-notes-file)
   (setq helm-bibtex-bibliography org-default-paper-bibtex-file)
   (setq helm-bibtex-library-path org-default-paper-pdf-directory))
+
+(use-package biblio
+  :config
+  (setq biblio-download-directory org-default-paper-pdf-directory))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package org
