@@ -3,7 +3,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; papers default path
-(setq org-default-paper-directory (file-name-as-directory "~/gitlab/papers"))
+(setq org-default-paper-directory (file-name-as-directory "~/papers"))
 (setq org-default-paper-notes-file (concat org-default-paper-directory "papers.org"))
 (setq org-default-paper-bibtex-file (concat org-default-paper-directory "papers.bib"))
 (setq org-default-paper-pdf-directory (concat org-default-paper-directory "db"))
