@@ -1655,7 +1655,7 @@ of the next."
                          " ~/dl")))
 
 (setq org-enable-priority-commands t)
-(setq org-default-priority ?E)
+(setq org-default-priority ?A)
 (setq org-lowest-priority ?E)
 
 ;; org-reveal
