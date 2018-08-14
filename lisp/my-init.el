@@ -333,3 +333,5 @@
 (defun execute-shell-command-on-buffer (shell-command-text)
   (interactive "MShell command:")
   (shell-command (format "%s %s" shell-command-text (shell-quote-argument buffer-file-name))))
+
+(setq sp-escape-quotes-after-insert nil)
