@@ -1690,6 +1690,7 @@ of the next."
    (haskell . t)
    (ipython . t)
    (js . t)
+   (latex . t)
    (perl . t)
    (plantuml . t)
    (python . t)
