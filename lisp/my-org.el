@@ -1,5 +1,7 @@
 
 (require 'org-habit)
+(require 'org-tempo)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; papers default path
