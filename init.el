@@ -498,13 +498,17 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;;        ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; see: https://github.com/emacs-china/elpa
+  ;; (setq configuration-layer-elpa-archives
+  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+
   (setq configuration-layer-elpa-archives
-        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "http://elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+    '(("melpa-cn" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+      ("org-cn"   . "http://mirrors.cloud.tencent.com/elpa/org/")
+      ("gnu-cn"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")))
 
-  )
-
+   )
 (defconst my-init-dir "~/.spacemacs.d/lisp")
 
 (defun load-user-file (file)
