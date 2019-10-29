@@ -84,6 +84,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      version-control
      windows-scripts
+     xclipboard
      yaml
 
      ;;; my private layers
