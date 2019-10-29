@@ -1675,7 +1675,6 @@ of the next."
    (dot . t)
    (emacs-lisp . t)
    (haskell . t)
-   (ipython . t)
    (js . t)
    (latex . t)
    (perl . t)
