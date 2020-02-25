@@ -81,7 +81,8 @@ This function should only modify configuration layer settings."
      spell-checking
      sql
      syntax-checking
-     version-control
+     '(version-control :variables
+                       version-control-diff-tool 'diff-hl)
      windows-scripts
      xclipboard
      yaml
