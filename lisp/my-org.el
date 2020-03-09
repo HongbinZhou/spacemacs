@@ -139,7 +139,7 @@
            ((org-agenda-overriding-header "Habits")
             (org-agenda-sorting-strategy
              '(todo-state-down effort-up category-keep))))
-          (" " "Agenda"
+          ("o" "Agenda"
            ((agenda "" ((org-agenda-sorting-strategy
                          '(time-up todo-state-down priority-down))))
             (tags "REFILE"
