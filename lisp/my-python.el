@@ -72,3 +72,5 @@
 ;; command:
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
+
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
