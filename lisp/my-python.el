@@ -66,4 +66,4 @@
 ;;       (comint-send-input)
 ;;       (switch-to-buffer old-buf))))
 
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
